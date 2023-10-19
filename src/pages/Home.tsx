@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 export default function HomePage () {
+
+  const navigate = useNavigate();
 
   const [restaurantName, setRestaurantName] = useState('');
 
@@ -32,6 +35,10 @@ export default function HomePage () {
     // handle privacy click logic here
   }
 
+  const handleCartClick = () => {
+    navigate('/cart')
+  }
+
   return (
     <main className="bg-white flex flex-col">
       <header className="justify-between items-start self-center flex w-full max-w-[1420px] gap-2 mt-12 px-5 max-md:max-w-full max-md:flex-wrap max-md:justify-center">
@@ -44,6 +51,9 @@ export default function HomePage () {
         <nav className="flex w-[215px] justify-between gap-5">
           <button className="text-zinc-900 text-right text-lg font-semibold leading-[175%]" onClick={handleLogin}>
             Login
+          </button>
+          <button className="text-zinc-900 text-right text-lg font-semibold leading-[175%]" onClick={handleCartClick}>
+            Cart
           </button>
           <div className="bg-red-500 self-stretch flex w-[110px] max-w-full flex-col px-5 py-4 rounded-[41.097px]">
             <button className="text-white text-center text-lg font-semibold leading-[175%] self-center -mb-0.5" onClick={handleSignUp}>
