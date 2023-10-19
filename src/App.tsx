@@ -1,16 +1,31 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from 'react-router-dom';
 
-import { Home, Cart } from "./pages";
+import { Home, Cart } from './pages';
+import { Suspense, lazy } from 'react';
+
+const HomePage = lazy(() =>
+  import('./pages/Home').then((module) => {
+    return { default: module.default };
+  })
+);
+
+const CartPage = lazy(() =>
+  import('./pages/Cart').then((module) => {
+    return { default: module.default };
+  })
+);
 
 function App() {
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/cart" element={<Cart/>} />
-      </Routes>
+    <div className='App'>
+      <Suspense fallback={<div>Loading.....</div>}>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/cart' element={<CartPage />} />
+        </Routes>
+      </Suspense>
     </div>
-  )
+  );
 }
 
 export default App;
