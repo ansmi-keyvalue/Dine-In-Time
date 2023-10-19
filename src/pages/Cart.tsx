@@ -7,18 +7,29 @@ const initialItems = [
 ];
 
 export default function Cart() {
-  const [quantity, setQuantity] = useState(1);
   const [items, setItems] = useState(initialItems);
 
-  const handleQuantityIncrement = (index: number) => {
-    if (items[index].quantity > 10) return;
+  const updateQuantity =(action: string, index: number) => {
+    let newItems = [...items];
+    const item = {...items[index]};
+    if (action === '+') {
+      item.quantity += 1;
+    } else {
+      item.quantity -= 1;
+    }
 
-    setQuantity(quantity + 1);
+    newItems[index] = item;
+    setItems(newItems)
+  }
+
+  const handleQuantityIncrement = (index: number) => {
+    if (items[index].quantity >= 9) return;
+    updateQuantity('+', index)
   };
 
   const handleQuantityDecrement = (index: number) => {
-    if (quantity <= 1) return;
-    setQuantity(quantity - 1);
+    if (items[index].quantity <= 1) return;
+    updateQuantity('-', index)
   };
 
   return (
