@@ -1,6 +1,15 @@
-import { FooterProps } from './types';
+export default function Footer() {
+  const handlePrivacyClick = () => {
+    // handle privacy click logic here
+  };
 
-const Footer = ({ handlePrivacyClick, handlePolicyClick, handleTermsAndServicesClick }: FooterProps) => {
+  const handlePolicyClick = () => {
+    // handle privacy click logic here
+  };
+
+  const handleTermsAndServicesClick = () => {
+    // handle privacy click logic here
+  };
   return (
     <footer className='bg-black flex justify-between p-6 px-10 mt-20'>
       <div className='text-gray-400 font-medium'>© 2023 pizza.All right reserved</div>
@@ -11,6 +20,4 @@ const Footer = ({ handlePrivacyClick, handlePolicyClick, handleTermsAndServicesC
       </nav>
     </footer>
   );
-};
-
-export default Footer;
+}

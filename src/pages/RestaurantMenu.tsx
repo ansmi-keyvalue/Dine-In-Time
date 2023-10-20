@@ -4,8 +4,6 @@ import { Footer, Header, ModalWrapper } from '../components';
 import { foodImage, menuCategories, menuCategoriesMap, RestaurantMenuCategories } from '../components/MenuItem.tsx';
 import MenuItem from '../components/MenuItem.tsx/MenuItem';
 import { IMenuItem } from '../components/MenuItem.tsx/types';
-import useFooter from '../hooks/useFooter';
-import useHeader from '../hooks/useHeader';
 
 const menuItems: IMenuItem[] = [
   {
@@ -77,8 +75,6 @@ const RestaurantMenu = () => {
   );
   const [isTimeSlotModalOpen, setIsTimeSlotModalOpen] = useState(false);
   const [selectedTime, setSelectedTime] = useState('');
-  const { handleLogin, handleSignUp, handleCartClick } = useHeader();
-  const { handlePolicyClick, handlePrivacyClick, handleTermsAndServicesClick } = useFooter();
   const handleAddItem = () => {
     // handle Add item logic
   };
@@ -92,11 +88,37 @@ const RestaurantMenu = () => {
     handleModalClose();
   };
 
+  const handleLogin = () => {
+    // handle login logic here
+  };
+
+  const handleSignUp = () => {
+    // handle signup logic here
+  };
+
+  const rightHeader = () => {
+    return (
+      <nav className='flex w-[250px] justify-between gap-5'>
+        <button className='text-zinc-900 text-right text-lg font-semibold leading-[175%]' onClick={handleLogin}>
+          Login
+        </button>
+        <div className='bg-red-500 self-stretch flex w-[110px] max-w-full flex-col px-1 py-3 rounded-[8px]'>
+          <button
+            className='text-white text-center text-md font-semibold leading-[100%] self-center -mb-0.5'
+            onClick={handleSignUp}
+          >
+            Sign Up
+          </button>
+        </div>
+      </nav>
+    );
+  };
+
   return (
     <>
-      <div className='px-48'>
-        <Header handleLogin={handleLogin} handleSignUp={handleSignUp} handleCartClick={handleCartClick} />
-        <div className='mt-14 pb-36'>
+      <div className='flex flex-col h-screen px-28 overflow-hidden'>
+        <Header headerRight={rightHeader()} />
+        <div className='mt-14 overflow-x-hidden overflow-y-scroll px-10'>
           <section className='flex flex-col'>
             <h1 className='text-slate-800 text-4xl font-semibold'>Samover</h1>
             <p className='text-zinc-900 text-3xl w-full mt-3 max-md:max-w-full'>
@@ -169,11 +191,7 @@ const RestaurantMenu = () => {
           </div>
         </ModalWrapper>
       </div>
-      <Footer
-        handlePrivacyClick={handlePrivacyClick}
-        handlePolicyClick={handlePolicyClick}
-        handleTermsAndServicesClick={handleTermsAndServicesClick}
-      />
+      <Footer />
     </>
   );
 };

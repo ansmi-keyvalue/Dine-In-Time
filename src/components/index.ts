@@ -1,5 +1,5 @@
-import Footer from "./Footer.tsx/Footer";
-import Header from "./Header.tsx/Header";
+import Footer from "./footer";
+import Header from "./header";
 import MenuItem from "./MenuItem.tsx/MenuItem";
 import QuantitySelector from './quantity-selector';
 import ModalWrapper from "./ModalWrapper/ModalWrapper";
@@ -9,5 +9,5 @@ export {
     Header,
     MenuItem,
     QuantitySelector,
-    ModalWrapper
+    ModalWrapper,
 };
