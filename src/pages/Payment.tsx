@@ -1,5 +1,3 @@
-export default function Payment () {
-  return (
-   <div>Payment</div>
-  )
+export default function Payment() {
+  return <div>Payment</div>;
 }
