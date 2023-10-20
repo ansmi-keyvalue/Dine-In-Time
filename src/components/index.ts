@@ -1,3 +1,3 @@
 import QuantitySelector from './quantity-selector';
 
-export {QuantitySelector};
+export { QuantitySelector };

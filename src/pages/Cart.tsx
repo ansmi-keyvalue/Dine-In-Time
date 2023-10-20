@@ -8,16 +8,14 @@ const initialItems = [
 
 export default function Cart() {
   const [items, setItems] = useState(initialItems);
-  const [paymentDetails, setPaymentDetails] = useState({itemTotal: 740, total: 782, additionalCharge: 42})
+  const [paymentDetails, setPaymentDetails] = useState({ itemTotal: 740, total: 782, additionalCharge: 42 });
 
   const updateQuantity = (action: string, index: number) => {
-    let newItems = [...items];
+    const newItems = [...items];
     const item = { ...items[index] };
-    if (action === '+') {
-      item.quantity += 1;
-    } else {
-      item.quantity -= 1;
-    }
+
+    if (action === '+') item.quantity += 1;
+    else item.quantity -= 1;
 
     newItems[index] = item;
     setItems(newItems);
@@ -35,11 +33,10 @@ export default function Cart() {
   };
 
   const calculateTotal = (currentItems: any) => {
-    const totalItemPrice = currentItems.reduce((a: number, i: any) => {
-      return a + (i.quantity * i.price)
-    },0)
-    setPaymentDetails({itemTotal: totalItemPrice, total: totalItemPrice+ 42, additionalCharge: 42})
-  }
+    const totalItemPrice = currentItems.reduce((a: number, i: any) => a + i.quantity * i.price, 0);
+
+    setPaymentDetails({ itemTotal: totalItemPrice, total: totalItemPrice + 42, additionalCharge: 42 });
+  };
 
   return (
     <main className='flex-1'>
@@ -53,26 +50,22 @@ export default function Cart() {
       </header>
       <div className='min-h-screen'>
         <div className='p-20'>
-          <>
-            <div className='font-bold'>Foodis</div>
-            {items?.map((item, index) => {
-              return (
-                <div className='flex flex-row mb-3'>
-                  <div className='text-black-400 font-normal text-sm mt-1 w-96'>{item.name}</div>
-                  <div className='mx-4' />
-                  <QuantitySelector
-                    quantity={item.quantity}
-                    handleDecrement={() => handleQuantityDecrement(index)}
-                    handleIncrement={() => handleQuantityIncrement(index)}
-                  />
-                  <div className='mx-4' />
-                  <div className='text-gray-600 font-normal mt-1'>₹{item.quantity * item.price}</div>
-                </div>
-              );
-            })}
-          </>
+          <div className='font-bold'>Foodis</div>
+          {items?.map((item, index) => (
+            <div className='flex flex-row mb-3'>
+              <div className='text-black-400 font-normal text-sm mt-1 w-96'>{item.name}</div>
+              <div className='mx-4' />
+              <QuantitySelector
+                quantity={item.quantity}
+                handleDecrement={() => handleQuantityDecrement(index)}
+                handleIncrement={() => handleQuantityIncrement(index)}
+              />
+              <div className='mx-4' />
+              <div className='text-gray-600 font-normal mt-1'>₹{item.quantity * item.price}</div>
+            </div>
+          ))}
         </div>
-        <div className='border border-dotted border-gray-400'></div>
+        <div className='border border-dotted border-gray-400' />
         <div className='p-20 w-1/2'>
           <div className='font-bold mb-5'>Bill Details</div>
           <div className='flex flex-row justify-between mb-2'>
