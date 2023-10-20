@@ -1,3 +1,5 @@
+import React from "react";
+
 interface QuantitySelectorProps {
   quantity: number;
   handleDecrement: () => void;
