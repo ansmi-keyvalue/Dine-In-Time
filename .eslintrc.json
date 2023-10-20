@@ -39,6 +39,7 @@
   "rules": {
     "prettier/prettier": "warn",
     "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": "off",
     "@typescript-eslint/no-var-requires": 0,
     "class-methods-use-this": "off",
     "no-underscore-dangle": "off",

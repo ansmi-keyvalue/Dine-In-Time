@@ -16,7 +16,7 @@ export default function Login({ onClose }: LoginType) {
   };
 
   const onSubmitNumber = () => {
-    phoneNumber.length === 10 && setVerification(true);
+    if (phoneNumber.length === 10) setVerification(true);
   };
 
   const renderLogin = () => (
@@ -48,7 +48,7 @@ export default function Login({ onClose }: LoginType) {
         <span className='text-black text-[15px] font-medium'>By clicking on Login, I accept the </span>
         <span className='text-black text-[15px] font-medium underline'>Terms & Conditions</span>
         <span className='text-black text-[15px] font-medium '> and </span>
-        <div className='text-black text-[15px] font-medium underline'>Privacy Policy</div>
+        <span className='text-black text-[15px] font-medium underline'>Privacy Policy</span>
       </div>
     </div>
   );

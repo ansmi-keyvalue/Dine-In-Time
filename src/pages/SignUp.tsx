@@ -88,5 +88,5 @@ export default function SignUp({ onClose }: SignUpType) {
     </div>
   );
 
-  return <LoginModalLayout onClose={onClose} children={renderLogin()} />;
+  return <LoginModalLayout onClose={onClose} children={renderLogin()} isSignUp />;
 }

@@ -8,16 +8,20 @@ export default function HomePage() {
   const [showSignUp, setShowSignUp] = useState(false);
 
   const handleLogin = () => {
+    document.documentElement.style.overflow = 'hidden';
     setShowLogin(true);
   };
 
   const onClose = () => {
+    document.documentElement.style.overflow = 'auto';
     showLogin && setShowLogin(false);
     showSignUp && setShowSignUp(false);
   };
 
   const handleSignUp = () => {
+    document.documentElement.style.overflow = 'hidden';
     setShowSignUp(true);
+
     // handle sign up logic here
   };
 
