@@ -50,15 +50,46 @@ const menuItems: IMenuItem[] = [
   }
 ];
 
+const timeSlots = [
+  '10:00 AM',
+  '10:30 AM',
+  '11:00 AM',
+  '11:30 AM',
+  '12:00 PM',
+  '12:30 PM',
+  '01:00 PM',
+  '01:30 PM',
+  '02:00 PM',
+  '02:30 PM',
+  '03:00 PM',
+  '03:30 PM',
+  '04:00 PM',
+  '04:30 PM',
+  '05:00 PM',
+  '05:30 PM',
+  '06:00 PM',
+  '06:30 PM'
+];
+
 const RestaurantMenu = () => {
   const [selectedCategory, setSelectedCategory] = useState<RestaurantMenuCategories>(
     RestaurantMenuCategories.Recommended
   );
   const [isTimeSlotModalOpen, setIsTimeSlotModalOpen] = useState(false);
+  const [selectedTime, setSelectedTime] = useState('');
   const { handleLogin, handleSignUp, handleCartClick } = useHeader();
   const { handlePolicyClick, handlePrivacyClick, handleTermsAndServicesClick } = useFooter();
   const handleAddItem = () => {
     // handle Add item logic
+  };
+
+  const handleModalClose = () => {
+    setIsTimeSlotModalOpen(false);
+  };
+
+  const handleTimeSelection = (time: string) => {
+    setSelectedTime(time);
+    handleModalClose();
   };
 
   return (
@@ -76,7 +107,7 @@ const RestaurantMenu = () => {
           </section>
           <div className='mt-16 mb-14 flex justify-between items-center'>
             <div className='font-medium text-3xl'>
-              Available Dishes at <span className='font-bold'>9:00 AM</span>
+              Available Dishes at <span className='font-bold'>{selectedTime}</span>
             </div>
             <button
               className='bg-red-500 rounded-md p-3 text-white font-bold'
@@ -110,11 +141,31 @@ const RestaurantMenu = () => {
             </div>
           </div>
         </div>
-        <ModalWrapper isOpen={isTimeSlotModalOpen} containerClassName='bg-white p-4'>
-          <div className='flex-col '>
-            <div className='mb-6'>Available Time slots</div>
-            {/* TODO: Complete after finalising time slot logics */}
-            <button className='border-2 border-black p-2'>9:00AM</button>
+        <ModalWrapper
+          isOpen={isTimeSlotModalOpen}
+          containerClassName='bg-white p-6 w-[35%]'
+          handleModalClose={handleModalClose}
+        >
+          <div className='flex items-center'>
+            <div className='flex flex-col'>
+              <div className='mb-6 font-semibold text-xl'>Available Time slots</div>
+              <div className='flex flex-wrap gap-2'>
+                {/* TODO: Change font color based on appropriate logic */}
+                {timeSlots.map((time, key) => (
+                  <button
+                    className='border-2 border-black p-2 rounded-md'
+                    key={key}
+                    onClick={() => handleTimeSelection(time)}
+                  >
+                    {time}
+                  </button>
+                ))}
+              </div>
+            </div>
+            {/* TODO: Replace with SVG */}
+            <button onClick={handleModalClose} className='font-semibold text-2xl self-start'>
+              X
+            </button>
           </div>
         </ModalWrapper>
       </div>

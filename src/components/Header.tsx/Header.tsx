@@ -2,7 +2,7 @@ import { HeaderProps } from './types';
 
 const Header = ({ handleLogin, handleSignUp, handleCartClick }: HeaderProps) => {
   return (
-    <header className='justify-between items-start self-center flex w-full max-w-[1420px] gap-2 mt-12 px-5 max-md:max-w-full max-md:flex-wrap max-md:justify-center'>
+    <header className='justify-between items-start self-center flex w-full max-w-[1420px] gap-2 mt-12 max-md:max-w-full max-md:flex-wrap max-md:justify-center'>
       <div className='flex'>
         <h1 className='text-5xl self-center my-auto max-md:text-4xl' aria-label='Pizza'>
           🍕
@@ -18,7 +18,7 @@ const Header = ({ handleLogin, handleSignUp, handleCartClick }: HeaderProps) => 
         </button>
         <div className='bg-red-500 self-stretch flex w-[110px] max-w-full flex-col px-5 py-4 rounded-[41.097px]'>
           <button
-            className='text-white text-center text-lg font-semibold leading-[175%] self-center -mb-0.5'
+            className='text-white text-center text-lg font-semibold leading-[175%] self-center -mb-0.5 min-w-max'
             onClick={handleSignUp}
           >
             Sign Up
