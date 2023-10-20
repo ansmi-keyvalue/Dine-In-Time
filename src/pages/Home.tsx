@@ -1,16 +1,14 @@
 import { useState } from "react";
 
+import useLogin from '../hooks/useLogin';
+import useFooter from '../hooks/useFooter';
+import { Footer, Header } from "../components";
+
 export default function HomePage () {
 
   const [restaurantName, setRestaurantName] = useState('');
-
-  const handleLogin = () => {
-    // handle login logic here
-  };
-
-  const handleSignUp = () => {
-    // handle sign up logic here
-  };
+  const { handleLogin, handleSignUp } = useLogin();
+  const { handlePolicyClick, handlePrivacyClick, handleTermsAndServicesClick } = useFooter();
 
   const handleRestaurantNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setRestaurantName(event?.target?.value);
@@ -20,38 +18,9 @@ export default function HomePage () {
     // handle search logic here
   };
 
-  const handlePrivacyClick = () => {
-    // handle privacy click logic here
-  }
-
-  const handlePolicyClick = () => {
-    // handle privacy click logic here
-  }
-
-  const handleTermsAndServicesClick = () => {
-    // handle privacy click logic here
-  }
-
   return (
     <main className="bg-white flex flex-col">
-      <header className="justify-between items-start self-center flex w-full max-w-[1420px] gap-2 mt-12 px-5 max-md:max-w-full max-md:flex-wrap max-md:justify-center">
-        <div className="flex">
-          <h1 className="text-5xl self-center my-auto max-md:text-4xl" aria-label="Pizza">
-            🍕
-          </h1>
-          <h2 className="text-zinc-900 text-2xl font-semibold self-center w-[146px] my-auto">DineInTime</h2>
-        </div>
-        <nav className="flex w-[215px] justify-between gap-5">
-          <button className="text-zinc-900 text-right text-lg font-semibold leading-[175%]" onClick={handleLogin}>
-            Login
-          </button>
-          <div className="bg-red-500 self-stretch flex w-[110px] max-w-full flex-col px-5 py-4 rounded-[41.097px]">
-            <button className="text-white text-center text-lg font-semibold leading-[175%] self-center -mb-0.5" onClick={handleSignUp}>
-              Sign Up
-            </button>
-          </div>
-        </nav>
-      </header>
+      <Header handleLogin={handleLogin} handleSignUp={handleSignUp}  />
       <section className="self-center w-full max-w-[1414px] mt-32 px-5 max-md:max-w-full">
         <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
           <div className="flex flex-col items-stretch w-[53%] max-md:w-full">
@@ -94,20 +63,7 @@ export default function HomePage () {
           <img loading="lazy" srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/c30f7fec-4fb0-4dd1-a239-8cf7a4868150?apiKey=5af04c6e253948b1ba4ced76716b2c9d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/c30f7fec-4fb0-4dd1-a239-8cf7a4868150?apiKey=5af04c6e253948b1ba4ced76716b2c9d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/c30f7fec-4fb0-4dd1-a239-8cf7a4868150?apiKey=5af04c6e253948b1ba4ced76716b2c9d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/c30f7fec-4fb0-4dd1-a239-8cf7a4868150?apiKey=5af04c6e253948b1ba4ced76716b2c9d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/c30f7fec-4fb0-4dd1-a239-8cf7a4868150?apiKey=5af04c6e253948b1ba4ced76716b2c9d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/c30f7fec-4fb0-4dd1-a239-8cf7a4868150?apiKey=5af04c6e253948b1ba4ced76716b2c9d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/c30f7fec-4fb0-4dd1-a239-8cf7a4868150?apiKey=5af04c6e253948b1ba4ced76716b2c9d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/c30f7fec-4fb0-4dd1-a239-8cf7a4868150?apiKey=5af04c6e253948b1ba4ced76716b2c9d&"className="aspect-[3.02] object-cover object-center w-full overflow-hidden self-center max-w-[1405px] grow mt-56 max-md:max-w-full max-md:mt-52" alt="Food" />
         </div>
       </section>
-      <footer className="bg-black flex justify-between p-6 px-10 mt-20">
-        <div className="text-gray-400 font-medium">© 2023 pizza.All right reserved</div>
-        <nav className="flex gap-5 text-gray-400">
-          <button onClick={handlePrivacyClick}>
-            Privacy
-          </button>
-          <button onClick={handlePolicyClick}>
-            Policy
-          </button>
-          <button onClick={handleTermsAndServicesClick}>
-            Terms & Services
-          </button>
-        </nav>
-      </footer>
+      <Footer handlePrivacyClick={handlePrivacyClick} handlePolicyClick={handlePolicyClick} handleTermsAndServicesClick={handleTermsAndServicesClick}  />
     </main>
   );
 }
