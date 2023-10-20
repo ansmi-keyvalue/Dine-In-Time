@@ -1,4 +1,5 @@
-import Home from "./Home";
-import Cart from "./Cart";
+import Home from './Home';
+import RestaurantMenu from './RestaurantMenu';
+import Cart from './Cart';
 
-export { Home, Cart };
+export { Home, RestaurantMenu, Cart };
