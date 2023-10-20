@@ -28,20 +28,20 @@ export default function Login({ onClose }: LoginType) {
           create an account
         </span>
       </div>
-      <div className=' h-[73px] w-11/12 overflow-hidden bg-white rounded-[10px] border border-neutral-400 px-[30px] py-[18px] flex items-center mb-5'>
-        <span className='text-zinc-900 text-3xl font-medium  tracking-tight'>+91</span>
+      <div className='h-[73px] w-full sm:w-11/12 overflow-hidden bg-white rounded-[10px] border border-neutral-400 px-[30px] py-[18px] flex items-center mb-5'>
+        <span className='text-zinc-900 text-2xl sm:text-3xl font-medium  tracking-tight'>+91</span>
         <input
-          className='appearance-none focus:outline-none text-zinc-900 text-3xl font-medium  px-2'
+          className='appearance-none focus:outline-none text-zinc-900 text-2xl sm:text-3xl font-medium  px-2'
           type='tel'
           maxLength={10}
           onChange={handlePhoneInput}
         />
       </div>
       <div
-        className='w-11/12 h-[67px] px-[22px] py-[18px] bg-red-500 rounded-[10px] shadow flex items-center justify-center mb-8'
+        className='w-full sm:w-11/12 h-[67px] px-[22px] py-[18px] bg-red-500 rounded-[10px] shadow flex items-center justify-center mb-8'
         onClick={onSubmitNumber}
       >
-        <div className='w-[385px] h-[35px] text-center text-white text-3xl font-semibold '>Login</div>
+        <div className=' h-[35px] text-center text-white text-2xl sm:text-3xl font-semibold '>Login</div>
       </div>
 
       <div>
