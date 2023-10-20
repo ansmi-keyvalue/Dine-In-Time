@@ -2,12 +2,35 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Footer, Header } from '../components';
-import RestaurantHome from '../assets/restaurant_home.png';
-import Cart from '../assets/cart.svg';
+import RestaurantHome from '../assets/png/restaurant_home.png';
+import Cart from '../assets/svg/cart.svg';
+
+import Login from './Login';
+import SignUp from './SignUp';
 
 const HomePage = () => {
   const [restaurantName, setRestaurantName] = useState('');
+  const [showLogin, setShowLogin] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false);
   const navigate = useNavigate();
+
+  const handleLogin = () => {
+    document.documentElement.style.overflow = 'hidden';
+    setShowLogin(true);
+  };
+
+  const onClose = () => {
+    document.documentElement.style.overflow = 'auto';
+    showLogin && setShowLogin(false);
+    showSignUp && setShowSignUp(false);
+  };
+
+  const handleSignUp = () => {
+    document.documentElement.style.overflow = 'hidden';
+    setShowSignUp(true);
+
+    // handle sign up logic here
+  };
 
   const handleRestaurantNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setRestaurantName(event?.target?.value);
@@ -15,14 +38,6 @@ const HomePage = () => {
 
   const handleSearch = () => {
     // handle search logic here
-  };
-
-  const handleLogin = () => {
-    // handle login logic here
-  };
-
-  const handleSignUp = () => {
-    // handle signup logic here
   };
 
   const handleCartClick = () => {
@@ -110,6 +125,8 @@ const HomePage = () => {
         </section>
         <Footer />
       </div>
+      {showLogin && <Login onClose={onClose} />}
+      {showSignUp && <SignUp onClose={onClose} />}
     </div>
   );
 };
