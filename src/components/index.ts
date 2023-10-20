@@ -8,4 +8,4 @@ export {
     Header,
     MenuItem,
     QuantitySelector
-}
+};

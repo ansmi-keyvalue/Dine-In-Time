@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import useHeader from '../hooks/useHeader';
 import useFooter from '../hooks/useFooter';

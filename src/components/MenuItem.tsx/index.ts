@@ -22,6 +22,6 @@ const menuCategoriesMap = {
     [RestaurantMenuCategories.MainCourse]: {
         name: 'Main Course'
     },
-}
+};
 
 export { foodImage, RestaurantMenuCategories, menuCategories, menuCategoriesMap };

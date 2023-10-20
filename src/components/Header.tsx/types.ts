@@ -1,4 +1,5 @@
-export type FooterProps = {
-    handleLogin: () => void; 
+export type HeaderProps = {
+    handleLogin: () => void;
     handleSignUp: () => void;
+    handleCartClick: () => void;
 }
