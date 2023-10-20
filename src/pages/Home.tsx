@@ -1,15 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import useLogin from '../hooks/useLogin';
+import useHeader from '../hooks/useHeader';
 import useFooter from '../hooks/useFooter';
 import { Footer, Header } from '../components';
 
 export default function HomePage() {
-  const navigate = useNavigate();
-
   const [restaurantName, setRestaurantName] = useState('');
-  const { handleLogin, handleSignUp } = useLogin();
+  const { handleLogin, handleSignUp, handleCartClick } = useHeader();
   const { handlePolicyClick, handlePrivacyClick, handleTermsAndServicesClick } = useFooter();
 
   const handleRestaurantNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,7 +20,7 @@ export default function HomePage() {
 
   return (
     <main className='bg-white flex flex-col'>
-      <Header handleLogin={handleLogin} handleSignUp={handleSignUp} />
+      <Header handleLogin={handleLogin} handleSignUp={handleSignUp} handleCartClick={handleCartClick} />
       <section className='self-center w-full max-w-[1414px] mt-32 px-5 max-md:max-w-full'>
         <div className='gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0'>
           <div className='flex flex-col items-stretch w-[53%] max-md:w-full'>

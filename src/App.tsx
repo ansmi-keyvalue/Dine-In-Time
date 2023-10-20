@@ -1,18 +1,8 @@
+import React, { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
+const HomePage = lazy(() => import('./pages/Home').then((module) => ({ default: module.default })));
 
-import { Suspense, lazy } from 'react';
-
-const HomePage = lazy(() =>
-  import('./pages/Home').then((module) => {
-    return { default: module.default };
-  })
-);
-
-const CartPage = lazy(() =>
-  import('./pages/Cart').then((module) => {
-    return { default: module.default };
-  })
-);
+const CartPage = lazy(() => import('./pages/Cart').then((module) => ({ default: module.default })));
 
 const RestaurantMenuPage = lazy(() =>
   import('./pages/RestaurantMenu').then((module) => {
