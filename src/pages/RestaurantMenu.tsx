@@ -121,7 +121,7 @@ const RestaurantMenu = () => {
           <Header headerRight={rightHeader()} />
         </div>
         <div className='overflow-x-hidden overflow-y-scroll px-28 shadow-inner'>
-          <section className='flex flex-col'>
+          <section className='flex flex-col mt-6'>
             <h1 className='text-slate-800 text-4xl font-semibold'>Samover</h1>
             <p className='text-zinc-900 text-3xl w-full mt-3 max-md:max-w-full'>
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
