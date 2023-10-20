@@ -116,9 +116,11 @@ const RestaurantMenu = () => {
 
   return (
     <>
-      <div className='flex flex-col h-screen px-28 overflow-hidden'>
-        <Header headerRight={rightHeader()} />
-        <div className='mt-14 overflow-x-hidden overflow-y-scroll px-10'>
+      <div className='flex flex-col h-screen overflow-hidden'>
+        <div className='px-16'>
+          <Header headerRight={rightHeader()} />
+        </div>
+        <div className='overflow-x-hidden overflow-y-scroll px-28 shadow-inner'>
           <section className='flex flex-col'>
             <h1 className='text-slate-800 text-4xl font-semibold'>Samover</h1>
             <p className='text-zinc-900 text-3xl w-full mt-3 max-md:max-w-full'>
