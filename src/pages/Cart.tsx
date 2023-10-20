@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { QuantitySelector } from '../components';
+import { QuantitySelector, Header, Footer } from '../components';
 
 const initialItems = [
   { name: '2 McChicken Burger + 2 Fries (M) + Veg Pizza McPuff', quantity: 1, price: 310 },
@@ -40,19 +40,12 @@ export default function Cart() {
 
   return (
     <main className='flex-1'>
-      <header className='justify-between items-start self-center flex w-full max-w-[1420px] gap-2 mt-12 px-5 max-md:max-w-full max-md:flex-wrap max-md:justify-center'>
-        <div className='flex'>
-          <h1 className='text-5xl self-center my-auto max-md:text-4xl' aria-label='Pizza'>
-            🍕
-          </h1>
-          <h2 className='text-zinc-900 text-2xl font-semibold self-center w-[146px] my-auto'>DineInTime</h2>
-        </div>
-      </header>
+      <Header />
       <div className='min-h-screen'>
         <div className='p-20'>
           <div className='font-bold'>Foodis</div>
           {items?.map((item, index) => (
-            <div className='flex flex-row mb-3'>
+            <div key={item.name + index} className='flex flex-row mb-3'>
               <div className='text-black-400 font-normal text-sm mt-1 w-96'>{item.name}</div>
               <div className='mx-4' />
               <QuantitySelector
@@ -89,14 +82,7 @@ export default function Cart() {
           <button className='text-white text-xl font-semibold self-center -mb-px'>Proceed To Payment</button>
         </div>
       </div>
-      <footer className='bg-black flex justify-between p-6 px-10 sticky  bottom-0'>
-        <div className='text-gray-400 font-medium'>© 2023 pizza.All right reserved</div>
-        <nav className='flex gap-5 text-gray-400'>
-          <button>Privacy</button>
-          <button>Policy</button>
-          <button>Terms & Services</button>
-        </nav>
-      </footer>
+      <Footer />
     </main>
   );
 }
