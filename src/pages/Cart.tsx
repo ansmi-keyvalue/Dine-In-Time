@@ -1,7 +1,13 @@
 import { useState } from 'react';
 import { QuantitySelector } from '../components';
 
-const initialItems = [
+type OrderItem = {
+  name: string;
+  quantity: number;
+  price: number;
+};
+
+const initialItems: OrderItem[] = [
   { name: '2 McChicken Burger + 2 Fries (M) + Veg Pizza McPuff', quantity: 1, price: 310 },
   { name: '2 McSpicy Chicken Burger + Fries (L) + 2 Coke', quantity: 1, price: 430 }
 ];
@@ -32,8 +38,8 @@ export default function Cart() {
     updateQuantity('-', index);
   };
 
-  const calculateTotal = (currentItems: any) => {
-    const totalItemPrice = currentItems.reduce((a: number, i: any) => a + i.quantity * i.price, 0);
+  const calculateTotal = (currentItems: OrderItem[]) => {
+    const totalItemPrice = currentItems.reduce((a: number, i: OrderItem) => a + i.quantity * i.price, 0);
 
     setPaymentDetails({ itemTotal: totalItemPrice, total: totalItemPrice + 42, additionalCharge: 42 });
   };
@@ -52,7 +58,7 @@ export default function Cart() {
         <div className='p-20'>
           <div className='font-bold'>Foodis</div>
           {items?.map((item, index) => (
-            <div className='flex flex-row mb-3'>
+            <div className='flex flex-row mb-3' key={index}>
               <div className='text-black-400 font-normal text-sm mt-1 w-96'>{item.name}</div>
               <div className='mx-4' />
               <QuantitySelector

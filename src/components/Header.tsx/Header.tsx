@@ -1,6 +1,6 @@
 import { HeaderProps } from './types';
 
-export default function Header({ handleLogin, handleSignUp, handleCartClick }: HeaderProps) {
+const Header = ({ handleLogin, handleSignUp, handleCartClick }: HeaderProps) => {
   return (
     <header className='justify-between items-start self-center flex w-full max-w-[1420px] gap-2 mt-12 px-5 max-md:max-w-full max-md:flex-wrap max-md:justify-center'>
       <div className='flex'>
@@ -27,4 +27,6 @@ export default function Header({ handleLogin, handleSignUp, handleCartClick }: H
       </nav>
     </header>
   );
-}
+};
+
+export default Header;

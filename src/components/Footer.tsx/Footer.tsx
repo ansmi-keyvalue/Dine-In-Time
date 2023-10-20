@@ -1,6 +1,6 @@
 import { FooterProps } from './types';
 
-export default function Footer({ handlePrivacyClick, handlePolicyClick, handleTermsAndServicesClick }: FooterProps) {
+const Footer = ({ handlePrivacyClick, handlePolicyClick, handleTermsAndServicesClick }: FooterProps) => {
   return (
     <footer className='bg-black flex justify-between p-6 px-10 mt-20'>
       <div className='text-gray-400 font-medium'>© 2023 pizza.All right reserved</div>
@@ -11,4 +11,6 @@ export default function Footer({ handlePrivacyClick, handlePolicyClick, handleTe
       </nav>
     </footer>
   );
-}
+};
+
+export default Footer;

@@ -4,7 +4,7 @@ import useHeader from '../hooks/useHeader';
 import useFooter from '../hooks/useFooter';
 import { Footer, Header } from '../components';
 
-export default function HomePage() {
+const HomePage = () => {
   const [restaurantName, setRestaurantName] = useState('');
   const { handleLogin, handleSignUp, handleCartClick } = useHeader();
   const { handlePolicyClick, handlePrivacyClick, handleTermsAndServicesClick } = useFooter();
@@ -94,4 +94,6 @@ export default function HomePage() {
       />
     </main>
   );
-}
+};
+
+export default HomePage;

@@ -1,9 +1,6 @@
 import { IMenuItemProps } from './types';
 
-export default function MenuItem({
-  item: { id, imageSrc, description, price, title, weight },
-  onAddItem
-}: IMenuItemProps) {
+const MenuItem = ({ item: { id, imageSrc, description, price, title, weight }, onAddItem }: IMenuItemProps) => {
   return (
     <section className='flex flex-col'>
       <div className='self-stretch max-md:max-w-full'>
@@ -17,7 +14,7 @@ export default function MenuItem({
                 alt='Food Image'
               />
               <button
-                className='bg-orange-600 rounded-md p-3 w-[45%] self-start text-white mt-3'
+                className='bg-red-500 rounded-md p-3 w-[45%] self-start text-white mt-3'
                 onClick={() => onAddItem(id)}
               >
                 ADD
@@ -36,4 +33,6 @@ export default function MenuItem({
       </div>
     </section>
   );
-}
+};
+
+export default MenuItem;
