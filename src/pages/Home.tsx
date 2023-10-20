@@ -54,7 +54,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className='flex flex-col h-screen overflow-hidden bg-red-200'>
+    <div className='flex flex-col h-screen overflow-hidden'>
       <Header headerRight={rightHeader()} />
       <div className='flex flex-col overflow-y-scroll overflow-x-hidden shadow-inner'>
         <section className='w-full max-md:max-w-full  px-20 pt-14 pb-10'>
