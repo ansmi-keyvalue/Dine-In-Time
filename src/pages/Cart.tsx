@@ -1,7 +1,13 @@
 import { useState } from 'react';
 import { QuantitySelector, Header, Footer } from '../components';
 
-const initialItems = [
+type OrderItem = {
+  name: string;
+  quantity: number;
+  price: number;
+};
+
+const initialItems: OrderItem[] = [
   { name: '2 McChicken Burger + 2 Fries (M) + Veg Pizza McPuff', quantity: 1, price: 310 },
   { name: '2 McSpicy Chicken Burger + Fries (L) + 2 Coke', quantity: 1, price: 430 }
 ];
@@ -32,8 +38,8 @@ export default function Cart() {
     updateQuantity('-', index);
   };
 
-  const calculateTotal = (currentItems: any) => {
-    const totalItemPrice = currentItems.reduce((a: number, i: any) => a + i.quantity * i.price, 0);
+  const calculateTotal = (currentItems: OrderItem[]) => {
+    const totalItemPrice = currentItems.reduce((a: number, i: OrderItem) => a + i.quantity * i.price, 0);
 
     setPaymentDetails({ itemTotal: totalItemPrice, total: totalItemPrice + 42, additionalCharge: 42 });
   };

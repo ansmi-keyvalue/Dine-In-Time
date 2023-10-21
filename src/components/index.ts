@@ -1,6 +1,8 @@
-import QuantitySelector from './quantity-selector';
-import Header from './header';
 import Footer from './footer';
+import Header from './header';
+import MenuItem from './MenuItem/MenuItem';
+import QuantitySelector from './quantity-selector';
 import RestaurantCard from './restaurantCard';
+import ModalWrapper from './ModalWrapper/ModalWrapper';
 
-export { QuantitySelector, Header, Footer, RestaurantCard };
+export { Footer, Header, MenuItem, QuantitySelector, ModalWrapper, RestaurantCard };

@@ -46,18 +46,9 @@ const restaurantsList = [
   }
 ];
 
-export default function HomePage() {
-  const navigate = useNavigate();
-
+const HomePage = () => {
   const [restaurantName, setRestaurantName] = useState('');
-
-  const handleLogin = () => {
-    // handle login logic here
-  };
-
-  const handleSignUp = () => {
-    // handle sign up logic here
-  };
+  const navigate = useNavigate();
 
   const handleRestaurantNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setRestaurantName(event?.target?.value);
@@ -65,6 +56,14 @@ export default function HomePage() {
 
   const handleSearch = () => {
     // handle search logic here
+  };
+
+  const handleLogin = () => {
+    // handle login logic here
+  };
+
+  const handleSignUp = () => {
+    // handle signup logic here
   };
 
   const handleCartClick = () => {
@@ -157,4 +156,6 @@ export default function HomePage() {
       </div>
     </div>
   );
-}
+};
+
+export default HomePage;
