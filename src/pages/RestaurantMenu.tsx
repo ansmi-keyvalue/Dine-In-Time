@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 import { Footer, Header, ModalWrapper } from '../components';
-import { foodImage, menuCategories, menuCategoriesMap, RestaurantMenuCategories } from '../components/MenuItem.tsx';
-import MenuItem from '../components/MenuItem.tsx/MenuItem';
-import { IMenuItem } from '../components/MenuItem.tsx/types';
+import { foodImage, menuCategories, menuCategoriesMap, RestaurantMenuCategories } from '../components/MenuItem';
+import MenuItem from '../components/MenuItem/MenuItem';
+import { IMenuItem } from '../components/MenuItem/types';
 
 const menuItems: IMenuItem[] = [
   {
