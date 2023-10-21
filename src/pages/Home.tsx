@@ -1,22 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import RestaurantHome from '../Assets/restaurant_home.png';
-import Cart from '../Assets/cart.svg';
 import { Footer, Header } from '../components';
+import RestaurantHome from '../assets/restaurant_home.png';
+import Cart from '../assets/cart.svg';
 
-export default function HomePage() {
-  const navigate = useNavigate();
-
+const HomePage = () => {
   const [restaurantName, setRestaurantName] = useState('');
-
-  const handleLogin = () => {
-    // handle login logic here
-  };
-
-  const handleSignUp = () => {
-    // handle sign up logic here
-  };
+  const navigate = useNavigate();
 
   const handleRestaurantNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setRestaurantName(event?.target?.value);
@@ -24,6 +15,14 @@ export default function HomePage() {
 
   const handleSearch = () => {
     // handle search logic here
+  };
+
+  const handleLogin = () => {
+    // handle login logic here
+  };
+
+  const handleSignUp = () => {
+    // handle signup logic here
   };
 
   const handleCartClick = () => {
@@ -113,4 +112,6 @@ export default function HomePage() {
       </div>
     </div>
   );
-}
+};
+
+export default HomePage;
