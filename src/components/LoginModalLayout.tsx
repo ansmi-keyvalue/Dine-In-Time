@@ -1,7 +1,7 @@
 import { Fragment, ReactNode } from 'react';
 import { Transition } from '@headlessui/react';
 import Close from '../assets/svg/close.svg';
-import DeliveryMan from '../assets/svg/deliveryman.svg';
+import FoodReady from '../assets/png/food_ready.png';
 
 interface LoginModalType {
   onClose: () => void;
@@ -44,8 +44,8 @@ export default function LoginModalLayout({ onClose, children, show, isSignUp = f
                   {children}
                 </div>
 
-                <div className={`w-2/3 ${isSignUp ? 'h-5/6' : 'h-3/5'} sm:flex justify-center items-center hidden `}>
-                  <img className='scale-125' src={DeliveryMan} alt='coutry-code' />
+                <div className={`w-2/3 ${isSignUp ? 'h-5/6' : 'h-1/2'} sm:flex justify-center items-center hidden `}>
+                  <img className='scale-100' src={FoodReady} alt='coutry-code' />
                 </div>
               </div>
             </div>
