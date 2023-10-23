@@ -47,7 +47,7 @@ export default function Cart() {
   };
 
   return (
-    <main className='flex-1'>
+    <main className='flex-1 min-h-screen'>
       <div className='shadow-md sticky top-0 bg-white'>
         <Header title='My Cart' />
       </div>
@@ -74,7 +74,7 @@ export default function Cart() {
             </div>
           ))}
         </div>
-        <div className='border-1 border rounded-md h-fit w-fit mt-10 pb-10 md:mt-0'>
+        <div className='border-1 border rounded-md h-fit w-fit mt-5 pb-10 md:mt-0'>
           <div className='p-10 md:flex md:flex-col md:justify-center'>
             <div className='font-bold mb-5'>Bill Details</div>
             <div className='flex flex-row justify-between mb-2 md:w-[400px]'>
@@ -101,7 +101,9 @@ export default function Cart() {
         </div>
       </div>
 
-      <Footer />
+      <div className='sticky bottom-0'>
+        <Footer />
+      </div>
     </main>
   );
 }
