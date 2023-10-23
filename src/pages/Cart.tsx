@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { QuantitySelector, Header, Footer } from '../components';
 
+import Burger from '../assets/burger.png';
+
 type OrderItem = {
   name: string;
   quantity: number;
@@ -8,8 +10,8 @@ type OrderItem = {
 };
 
 const initialItems: OrderItem[] = [
-  { name: '2 McChicken Burger + 2 Fries (M) + Veg Pizza McPuff', quantity: 1, price: 310 },
-  { name: '2 McSpicy Chicken Burger + Fries (L) + 2 Coke', quantity: 1, price: 430 }
+  { name: 'McChicken Burger + Fries (M) + Veg Pizza McPuff', quantity: 1, price: 310 },
+  { name: 'McSpicy Chicken Burger + Fries (L) + Coke', quantity: 1, price: 430 }
 ];
 
 export default function Cart() {
@@ -46,48 +48,55 @@ export default function Cart() {
 
   return (
     <main className='flex-1'>
-      <Header />
+      <Header title='My Cart' />
       <div className='min-h-screen'>
-        <div className='p-20'>
-          <div className='font-bold'>Foodis</div>
+        <div className='p-5 md:p-28 '>
           {items?.map((item, index) => (
-            <div key={item.name + index} className='flex flex-row mb-3'>
-              <div className='text-black-400 font-normal text-sm mt-1 w-96'>{item.name}</div>
-              <div className='mx-4' />
-              <QuantitySelector
-                quantity={item.quantity}
-                handleDecrement={() => handleQuantityDecrement(index)}
-                handleIncrement={() => handleQuantityIncrement(index)}
-              />
-              <div className='mx-4' />
-              <div className='text-gray-600 font-normal mt-1'>₹{item.quantity * item.price}</div>
+            <div key={item.name + index} className='flex flex-row mb-3  bg-white md:w-5/12 md:mb-8'>
+              <img loading='lazy' src={Burger} className='w-16 h-16 rounded-[4px]' alt='Food' />
+              <div className='ml-4'>
+                <div className='text-black-400 font-bold text-sm mt-1 md:w-96 '>{item.name}</div>
+                <div className='w-[90px]'>
+                  <div className='text-gray-600 font-normal mt-1'>₹{item.quantity * item.price}</div>
+                </div>
+              </div>
+              <div className='h-[32px]'>
+                <QuantitySelector
+                  quantity={item.quantity}
+                  handleDecrement={() => handleQuantityDecrement(index)}
+                  handleIncrement={() => handleQuantityIncrement(index)}
+                />
+              </div>
             </div>
           ))}
         </div>
-        <div className='border border-dotted border-gray-400' />
-        <div className='p-20 w-1/2'>
-          <div className='font-bold mb-5'>Bill Details</div>
-          <div className='flex flex-row justify-between mb-2'>
-            <div className='text-gray-400  text-xs'>ItemTotal</div>
-            <div className='text-gray-400  text-xs font-bold'>₹{paymentDetails.itemTotal}</div>
+        <div>
+          <div className='bg-white p-10 md:px-28 md:w-5/12'>
+            <div className='font-bold mb-5'>Bill Details</div>
+            <div className='flex flex-row justify-between mb-2'>
+              <div className='text-gray-400  text-xs'>Item Total</div>
+              <div className='text-gray-400  text-xs font-bold'>₹{paymentDetails.itemTotal}</div>
+            </div>
+            <div className='flex flex-row justify-between mb-2'>
+              <div className='text-gray-400  text-xs'>Platform Fee</div>
+              <div className='text-gray-400  text-xs font-bold'>₹5</div>
+            </div>
+            <div className='flex flex-row justify-between mb-2'>
+              <div className='text-gray-400  text-xs'>GST and Restaurant Charges</div>
+              <div className='text-gray-400  text-xs font-bold'>₹37</div>
+            </div>
+            <div className='border-t border-dotted border-gray-400 mt-5'></div>
+            <div className='flex flex-row justify-between mt-5'>
+              <div className='font-extrabold'>Total</div>
+              <div className='font-extrabold'>₹{paymentDetails.total}</div>
+            </div>
           </div>
-          <div className='flex flex-row justify-between mb-2'>
-            <div className='text-gray-400  text-xs'>Platform Fee</div>
-            <div className='text-gray-400  text-xs font-bold'>₹5</div>
+          <div className='bg-red-500 flex w-[250px] flex-col px-5 py-5 rounded-[10px] ml-16 mt-16 md:ml-28'>
+            <button className='text-white text-xl font-semibold self-center -mb-px'>Proceed To Payment</button>
           </div>
-          <div className='flex flex-row justify-between mb-2'>
-            <div className='text-gray-400  text-xs'>GST and Restaurant Charges</div>
-            <div className='text-gray-400  text-xs font-bold'>₹37</div>
-          </div>
-          <div className='flex flex-row justify-between mt-5'>
-            <div className='font-extrabold'>Total</div>
-            <div className='font-extrabold'>₹{paymentDetails.total}</div>
-          </div>
-        </div>
-        <div className='bg-red-500 flex w-[250px] flex-col -mt-px px-5 py-5 rounded-[40px] ml-20'>
-          <button className='text-white text-xl font-semibold self-center -mb-px'>Proceed To Payment</button>
         </div>
       </div>
+
       <Footer />
     </main>
   );
