@@ -1,4 +1,4 @@
-export default function RestaurantCard(props: { restaurant: any }) {
+export default function RestaurantCard(props: { restaurant: { name: string; description: string; coverImage: string; } }) {
   const { name, description, coverImage } = props.restaurant;
   return (
     <div className='min-w-[300px] max-w-[360px] rounded-[8px] overflow-hidden border'>

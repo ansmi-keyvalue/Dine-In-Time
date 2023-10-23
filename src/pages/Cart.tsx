@@ -49,10 +49,10 @@ export default function Cart() {
   return (
     <main className='flex-1'>
       <Header title='My Cart' />
-      <div className='min-h-screen'>
-        <div className='p-5 md:p-28 '>
+      <div className='min-h-screen md:flex md:flex-row md:w-full'>
+        <div className='p-5 md:p-28 md:w-1/2'>
           {items?.map((item, index) => (
-            <div key={item.name + index} className='flex flex-row mb-3  bg-white md:w-5/12 md:mb-8'>
+            <div key={item.name + index} className='flex flex-row mb-3 md:w-5/12 md:mb-8'>
               <img loading='lazy' src={Burger} className='w-16 h-16 rounded-[4px]' alt='Food' />
               <div className='ml-4'>
                 <div className='text-black-400 font-bold text-sm mt-1 md:w-96 '>{item.name}</div>
@@ -70,28 +70,28 @@ export default function Cart() {
             </div>
           ))}
         </div>
-        <div>
-          <div className='bg-white p-10 md:px-28 md:w-5/12'>
+        <div className='border-2 border-gray-200 rounded-md h-fit w-fit md:pb-10'>
+          <div className='p-10 md:flex md:flex-col md:justify-center'>
             <div className='font-bold mb-5'>Bill Details</div>
-            <div className='flex flex-row justify-between mb-2'>
+            <div className='flex flex-row justify-between mb-2 md:w-[400px]'>
               <div className='text-gray-400  text-xs'>Item Total</div>
               <div className='text-gray-400  text-xs font-bold'>₹{paymentDetails.itemTotal}</div>
             </div>
-            <div className='flex flex-row justify-between mb-2'>
+            <div className='flex flex-row justify-between mb-2 md:w-[400px]'>
               <div className='text-gray-400  text-xs'>Platform Fee</div>
               <div className='text-gray-400  text-xs font-bold'>₹5</div>
             </div>
-            <div className='flex flex-row justify-between mb-2'>
+            <div className='flex flex-row justify-between mb-2 md:w-[400px]'>
               <div className='text-gray-400  text-xs'>GST and Restaurant Charges</div>
               <div className='text-gray-400  text-xs font-bold'>₹37</div>
             </div>
             <div className='border-t border-dotted border-gray-400 mt-5'></div>
-            <div className='flex flex-row justify-between mt-5'>
+            <div className='flex flex-row justify-between mt-5 md:w-[400px]'>
               <div className='font-extrabold'>Total</div>
               <div className='font-extrabold'>₹{paymentDetails.total}</div>
             </div>
           </div>
-          <div className='bg-red-500 flex w-[250px] flex-col px-5 py-5 rounded-[10px] ml-16 mt-16 md:ml-28'>
+          <div className='bg-red-500 flex flex-col px-5 py-3 rounded-[10px] mx-10'>
             <button className='text-white text-xl font-semibold self-center -mb-px'>Proceed To Payment</button>
           </div>
         </div>
