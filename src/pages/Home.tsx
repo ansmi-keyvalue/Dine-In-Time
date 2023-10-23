@@ -80,7 +80,7 @@ const HomePage = () => {
     <div className='flex flex-col h-screen overflow-hidden'>
       <Header headerRight={rightHeader()} />
       <div className='flex flex-col overflow-y-scroll overflow-x-hidden shadow-inner'>
-        <section className='w-full max-md:max-w-full  px-20 pt-14 pb-10'>
+        <section className='w-full max-md:max-w-full px-9 lg:px-20 pt-14 pb-10'>
           <div className='flex max-md:flex-col max-md:items-stretch max-md:gap-0'>
             <div className='flex flex-col items-stretch w-[53%] max-md:w-full'>
               <div className='flex flex-col mt-2 max-md:max-w-full max-md:mt-12 pt-5'>
@@ -91,7 +91,7 @@ const HomePage = () => {
                   The early access to your favourite food. Why starve when you have us. You hunger partner. Pre-book
                   your food now for avoid the waiting time.
                 </p>
-                <div className='bg-neutral-100 flex w-[400px] max-w-full items-start justify-between gap-5 mt-16 pl-5 pr-2 py-2 rounded-[14px] max-md:flex-wrap'>
+                <div className='bg-neutral-100 flex md:w-[400px] max-w-full items-start justify-between gap-5 mt-16 pl-5 pr-2 py-2 rounded-[14px] max-md:flex-wrap'>
                   <input
                     className='bg-neutral-100 text-base font-medium self-center my-auto w-[60%] p-2 focus:outline-none focus:bg-transparent'
                     type='text'
@@ -108,7 +108,7 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-            <div className='flex justify-left item-center w-full max-md:w-full px-20, pt-10'>
+            <div className='flex justify-left item-center w-full max-md:w-full px-9 lg:px-20 pt-10'>
               <img
                 loading='lazy'
                 src={RestaurantHome}
@@ -118,7 +118,7 @@ const HomePage = () => {
             </div>
           </div>
         </section>
-        <section className='self-center flex w-full flex-col mt-20 max-md:max-w-full px-20'>
+        <section className='self-center flex w-full flex-col mt-20 max-md:max-w-full px-9 lg:px-20'>
           <div className='items-center self-center w-full flex max-w-full flex-col mb-10'>
             <h1 className='text-center text-4xl font-bold'>
               <span className='font-semibold text-zinc-900 capitalize'>More Than </span>
