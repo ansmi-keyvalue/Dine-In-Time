@@ -34,6 +34,11 @@
   },
   "rules": {
     "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": "off",
+    "@typescript-eslint/no-var-requires": 0,
+    "class-methods-use-this": "off",
+    "no-underscore-dangle": "off",
+    "import/prefer-default-export": "off",
     "no-debugger": "error",
     "no-trailing-spaces": "error",
     "no-multi-spaces": "error",
