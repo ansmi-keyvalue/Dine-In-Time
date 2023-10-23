@@ -4,6 +4,8 @@ import { Footer, Header, ModalWrapper } from '../components';
 import { foodImage, menuCategories, menuCategoriesMap, RestaurantMenuCategories } from '../components/MenuItem';
 import MenuItem from '../components/MenuItem/MenuItem';
 import { IMenuItem } from '../components/MenuItem/types';
+import Login from './Login';
+import SignUp from './SignUp';
 
 const menuItems: IMenuItem[] = [
   {
@@ -75,6 +77,8 @@ const RestaurantMenu = () => {
   );
   const [isTimeSlotModalOpen, setIsTimeSlotModalOpen] = useState(false);
   const [selectedTime, setSelectedTime] = useState('');
+  const [showLogin, setShowLogin] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false);
   const handleAddItem = () => {
     // handle Add item logic
   };
@@ -89,11 +93,21 @@ const RestaurantMenu = () => {
   };
 
   const handleLogin = () => {
-    // handle login logic here
+    document.documentElement.style.overflow = 'hidden';
+    setShowLogin(true);
+  };
+
+  const onClose = () => {
+    document.documentElement.style.overflow = 'auto';
+    showLogin && setShowLogin(false);
+    showSignUp && setShowSignUp(false);
   };
 
   const handleSignUp = () => {
-    // handle signup logic here
+    document.documentElement.style.overflow = 'hidden';
+    setShowSignUp(true);
+
+    // handle sign up logic here
   };
 
   const rightHeader = () => {
@@ -193,7 +207,10 @@ const RestaurantMenu = () => {
           </div>
         </ModalWrapper>
       </div>
+
       <Footer />
+      <Login onClose={onClose} show={showLogin} />
+      <SignUp onClose={onClose} show={showSignUp} />
     </>
   );
 };
