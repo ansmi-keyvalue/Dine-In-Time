@@ -48,8 +48,11 @@ export default function Cart() {
 
   return (
     <main className='flex-1'>
-      <Header title='My Cart' />
-      <div className='min-h-screen flex flex-col items-center md:flex-row md:w-full md:justify-center md:items-start md:my-16'>
+      <div className='shadow-md sticky top-0 bg-white'>
+        <Header title='My Cart' />
+      </div>
+
+      <div className='min-h-screen flex flex-col items-center md:flex-row md:w-full md:justify-center md:items-start md:mt-24'>
         <div className='border rounded-md h-fit w-fit m-10 p-3 md:py-10 md:mr-10 md:p-10 md:mt-0'>
           {items?.map((item, index) => (
             <div key={item.name + index} className='flex flex-row mb-3 md:w-5/12 md:mb-8'>
