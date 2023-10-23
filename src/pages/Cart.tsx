@@ -47,7 +47,7 @@ export default function Cart() {
   };
 
   return (
-    <main className='flex-1'>
+    <main className='flex-1 min-h-screen'>
       <div className='shadow-md sticky top-0 bg-white'>
         <Header title='My Cart' />
       </div>
@@ -74,34 +74,49 @@ export default function Cart() {
             </div>
           ))}
         </div>
-        <div className='border-1 border rounded-md h-fit w-fit mt-10 pb-10 md:mt-0'>
-          <div className='p-10 md:flex md:flex-col md:justify-center'>
-            <div className='font-bold mb-5'>Bill Details</div>
-            <div className='flex flex-row justify-between mb-2 md:w-[400px]'>
-              <div className='text-gray-400  text-xs'>Item Total</div>
-              <div className='text-gray-400  text-xs font-bold'>₹{paymentDetails.itemTotal}</div>
+        {/* New Section */}
+        <div>
+          <div className='border-1 border rounded-md h-fit w-fit mt-5 pb-10 md:mt-0'>
+            <div className='p-10 md:flex md:flex-col md:justify-center'>
+              <div className='font-bold mb-5'>Bill Details</div>
+              <div className='flex flex-row justify-between mb-2 md:w-[400px]'>
+                <div className='text-gray-400  text-xs'>Item Total</div>
+                <div className='text-gray-400  text-xs font-bold'>₹{paymentDetails.itemTotal}</div>
+              </div>
+              <div className='flex flex-row justify-between mb-2 md:w-[400px]'>
+                <div className='text-gray-400  text-xs'>Platform Fee</div>
+                <div className='text-gray-400  text-xs font-bold'>₹5</div>
+              </div>
+              <div className='flex flex-row justify-between mb-2 md:w-[400px]'>
+                <div className='text-gray-400  text-xs'>GST and Restaurant Charges</div>
+                <div className='text-gray-400  text-xs font-bold'>₹37</div>
+              </div>
+              <div className='border-t border-dotted border-gray-400 mt-5'></div>
+              <div className='flex flex-row justify-between mt-5 md:w-[400px]'>
+                <div className='font-extrabold'>Total</div>
+                <div className='font-extrabold'>₹{paymentDetails.total}</div>
+              </div>
             </div>
-            <div className='flex flex-row justify-between mb-2 md:w-[400px]'>
-              <div className='text-gray-400  text-xs'>Platform Fee</div>
-              <div className='text-gray-400  text-xs font-bold'>₹5</div>
-            </div>
-            <div className='flex flex-row justify-between mb-2 md:w-[400px]'>
-              <div className='text-gray-400  text-xs'>GST and Restaurant Charges</div>
-              <div className='text-gray-400  text-xs font-bold'>₹37</div>
-            </div>
-            <div className='border-t border-dotted border-gray-400 mt-5'></div>
-            <div className='flex flex-row justify-between mt-5 md:w-[400px]'>
-              <div className='font-extrabold'>Total</div>
-              <div className='font-extrabold'>₹{paymentDetails.total}</div>
+            <div className='bg-red-500 flex flex-col px-5 py-3 rounded-[10px] mx-10'>
+              <button className='text-white text-xl font-semibold self-center -mb-px'>Proceed To Payment</button>
             </div>
           </div>
-          <div className='bg-red-500 flex flex-col px-5 py-3 rounded-[10px] mx-10'>
-            <button className='text-white text-xl font-semibold self-center -mb-px'>Proceed To Payment</button>
+          {/* New Section */}
+          <div className='border-1 border rounded-md h-fit mt-16 p-10 w-[310px] md:w-[480px]'>
+            <div className='text-center text-red-400'>Cancellation Policy</div>
+            <div className='border-t border-dotted border-red-400'></div>
+            <div className='text-xs text-gray-400 mt-2'>
+              We apologize, but we do not allow cancellations for food orders once they are placed. Please review your
+              order carefully before confirming it to ensure accuracy. If you have any concerns or issues with your
+              order, please contact our customer support for assistance. Thank you for your understanding.
+            </div>
           </div>
         </div>
       </div>
 
-      <Footer />
+      <div className='sticky bottom-0'>
+        <Footer />
+      </div>
     </main>
   );
 }
