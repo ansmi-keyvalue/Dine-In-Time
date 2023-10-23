@@ -19,7 +19,6 @@ const BookingConfirmationPage = lazy(() =>
   })
 );
 
-
 const RestaurantMenuPage = lazy(() => import('./pages/RestaurantMenu').then((module) => ({ default: module.default })));
 
 function App() {
