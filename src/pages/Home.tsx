@@ -125,8 +125,8 @@ const HomePage = () => {
         </section>
         <Footer />
       </div>
-      {showLogin && <Login onClose={onClose} />}
-      {showSignUp && <SignUp onClose={onClose} />}
+      <Login onClose={onClose} show={showLogin} />
+      <SignUp onClose={onClose} show={showSignUp} />
     </div>
   );
 };

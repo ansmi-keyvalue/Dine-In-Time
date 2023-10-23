@@ -3,9 +3,10 @@ import LoginModalLayout from '../components/LoginModalLayout';
 
 interface SignUpType {
   onClose: () => void;
+  show: boolean;
 }
 
-export default function SignUp({ onClose }: SignUpType) {
+export default function SignUp({ onClose, show }: SignUpType) {
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [phoneNumber, setPhoneNumber] = useState<string>('');
@@ -89,7 +90,7 @@ export default function SignUp({ onClose }: SignUpType) {
   );
 
   return (
-    <LoginModalLayout onClose={onClose} isSignUp>
+    <LoginModalLayout onClose={onClose} isSignUp show={show}>
       {renderSignUp()}
     </LoginModalLayout>
   );

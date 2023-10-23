@@ -3,9 +3,10 @@ import LoginModalLayout from '../components/LoginModalLayout';
 
 interface OtpverifyType {
   onClose: () => void;
+  show: boolean;
 }
 
-export default function OtpVerify({ onClose }: OtpverifyType) {
+export default function OtpVerify({ onClose, show }: OtpverifyType) {
   const [Otp, setOtp] = useState<string>('');
 
   const handleOTPEntry = (e: ChangeEvent<HTMLInputElement>) => {
@@ -41,5 +42,9 @@ export default function OtpVerify({ onClose }: OtpverifyType) {
     </div>
   );
 
-  return <LoginModalLayout onClose={onClose}>{renderOtpEntry()}</LoginModalLayout>;
+  return (
+    <LoginModalLayout show={show} onClose={onClose}>
+      {renderOtpEntry()}
+    </LoginModalLayout>
+  );
 }

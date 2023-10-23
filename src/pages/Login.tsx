@@ -4,9 +4,10 @@ import OtpVerify from './OtpVerification';
 
 interface LoginType {
   onClose: () => void;
+  show: boolean;
 }
 
-export default function Login({ onClose }: LoginType) {
+export default function Login({ onClose, show }: LoginType) {
   const [phoneNumber, setPhoneNumber] = useState<string>('');
   const [verification, setVerification] = useState(false);
   const handleAccountCreation = () => {};
@@ -54,8 +55,10 @@ export default function Login({ onClose }: LoginType) {
   );
 
   return verification ? (
-    <OtpVerify onClose={onClose} />
+    <OtpVerify onClose={onClose} show={show} />
   ) : (
-    <LoginModalLayout onClose={onClose}>{renderLogin()}</LoginModalLayout>
+    <LoginModalLayout onClose={onClose} show={show}>
+      {renderLogin()}
+    </LoginModalLayout>
   );
 }
