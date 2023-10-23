@@ -29,7 +29,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/cart' element={<CartPage />} />
-          <Route path="/booking-confirmation" element={<BookingConfirmationPage/>} />
+          <Route path='/booking-confirmation' element={<BookingConfirmationPage/>} />
           <Route path='/restaurants/:id' element={<RestaurantMenuPage />} />
         </Routes>
       </Suspense>

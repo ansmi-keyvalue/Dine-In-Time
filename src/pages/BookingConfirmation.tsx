@@ -1,29 +1,35 @@
 import QRCode from 'react-qr-code';
+import { useNavigate } from 'react-router-dom';
+
+import { Header } from '../components';
 
 export default function BookingConfirmation() {
+  const navigate = useNavigate();
+
+  const handleMoreFood = () => {
+    navigate('/');
+  };
+
   return (
     <main className='bg-white flex flex-col'>
-      <header className='justify-between items-start self-center flex w-full max-w-[1420px] gap-2 mt-12 px-5 max-md:max-w-full max-md:flex-wrap max-md:justify-center'>
-        <div className='flex'>
-          <h1 className='text-5xl self-center my-auto max-md:text-4xl' aria-label='Pizza'>
-            🍕
-          </h1>
-          <h2 className='text-zinc-900 text-2xl font-semibold self-center w-[146px] my-auto'>DineInTime</h2>
-        </div>
-      </header>
-      <section className='flex flex-col items-stretch w-[47%] ml-5 max-md:w-full p-[100px]  justify-center'>
-        <div className='text-black-400 font-bold text-lg mt-1 w-96'>Congrats !!!</div>
-        <div className='text-black-400 font-normal text-sm mt-1 w-96'> Your order has been placed</div>
+      <Header />
+      <section className='flex flex-col md:justify-center text-center md:w-[500px] md:m-20 m-5 p-[20px]'>
+        <h2 className='text-3xl font-bold text-red-500'>Congrats !!!</h2>
+        <div className='text-black-400 font-normal text-[16px] mt-5'> Your order has been placed</div>
 
-        <div className='text-black-400 font-normal text-sm mt-1 w-96'> Scan the QR code while picking up your order</div>
-
-        <div className='my-5 max-w-[200px] '>
+        <div className='text-black-400 font-normal text-[14px] mt-2 '>Scan the QR code while picking up your order</div>
+        <div className='my-10'>
           <QRCode
             size={400}
-            style={{ height: 'auto', maxWidth: '100%', width: '100%' }}
+            style={{ height: 'auto', maxWidth: '50%', width: '50%', marginLeft: '25%' }}
             value={'test-qr-code'}
             viewBox={`0 0 256 256`}
           />
+        </div>
+        <div className='bg-red-500  w-[350px] px-5 py-5 rounded-[10px] mt-10 md:ml-16'>
+          <button className='text-white text-xl font-semibold self-center -mb-px' onClick={handleMoreFood}>
+            More Food
+          </button>
         </div>
       </section>
     </main>
