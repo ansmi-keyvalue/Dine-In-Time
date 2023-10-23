@@ -2,8 +2,11 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Footer, Header, RestaurantCard } from '../components';
-import RestaurantHome from '../assets/restaurant_home.png';
-import Cart from '../assets/cart.svg';
+import RestaurantHome from '../assets/png/restaurant_home.png';
+import Cart from '../assets/svg/cart.svg';
+
+import Login from './Login';
+import SignUp from './SignUp';
 
 const restaurantsList = [
   {
@@ -46,16 +49,28 @@ const restaurantsList = [
   }
 ];
 
-export default function HomePage() {
+
+const HomePage = () => {
+  const [restaurantName, setRestaurantName] = useState('');
+  const [showLogin, setShowLogin] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false);
   const navigate = useNavigate();
 
-  const [restaurantName, setRestaurantName] = useState('');
-
   const handleLogin = () => {
-    // handle login logic here
+    document.documentElement.style.overflow = 'hidden';
+    setShowLogin(true);
+  };
+
+  const onClose = () => {
+    document.documentElement.style.overflow = 'auto';
+    showLogin && setShowLogin(false);
+    showSignUp && setShowSignUp(false);
   };
 
   const handleSignUp = () => {
+    document.documentElement.style.overflow = 'hidden';
+    setShowSignUp(true);
+
     // handle sign up logic here
   };
 
@@ -155,6 +170,10 @@ export default function HomePage() {
         </section>
         <Footer />
       </div>
+      <Login onClose={onClose} show={showLogin} />
+      <SignUp onClose={onClose} show={showSignUp} />
     </div>
   );
-}
+};
+
+export default HomePage;
