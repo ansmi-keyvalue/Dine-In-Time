@@ -1,7 +1,7 @@
 export default function Header(props: { title?: string; headerRight?: any }) {
   return (
-    <header className='justify-between h-200 items-center self-center flex w-full  max-md:max-w-full max-md:flex-wrap max-md:justify-center px-8 sticky top-0 z-10 py-6'>
-      <div className='flex'>
+    <header className='justify-between h-200 items-center self-center flex w-full  max-md:max-w-full max-md:flex-wrap px-3 md:px-8 sticky top-0 z-10 py-6'>
+      <div className='flex max-sm:flex-1 max-sm:justify-center'>
         <h1 className='text-5xl self-center my-auto max-md:text-4xl' aria-label='Pizza'>
           🍕
         </h1>
@@ -9,7 +9,7 @@ export default function Header(props: { title?: string; headerRight?: any }) {
           {props.title || 'DineInTime'}
         </h2>
       </div>
-      {props.headerRight}
+      <div className='flex max-sm:flex-1 max-sm:justify-center'>{props.headerRight}</div>
     </header>
   );
 }
