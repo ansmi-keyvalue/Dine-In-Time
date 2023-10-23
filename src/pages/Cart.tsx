@@ -49,8 +49,8 @@ export default function Cart() {
   return (
     <main className='flex-1'>
       <Header title='My Cart' />
-      <div className='min-h-screen md:flex md:flex-row md:w-full'>
-        <div className='p-5 md:p-28 md:w-1/2'>
+      <div className='min-h-screen md:flex md:flex-row md:w-full md:justify-center md:my-16'>
+        <div className='border rounded-md h-fit w-fit md:py-10 md:mr-10 p-10'>
           {items?.map((item, index) => (
             <div key={item.name + index} className='flex flex-row mb-3 md:w-5/12 md:mb-8'>
               <img loading='lazy' src={Burger} className='w-16 h-16 rounded-[4px]' alt='Food' />
@@ -70,7 +70,7 @@ export default function Cart() {
             </div>
           ))}
         </div>
-        <div className='border-2 border-gray-200 rounded-md h-fit w-fit md:pb-10'>
+        <div className='border-1 border rounded-md h-fit w-fit  md:pb-10'>
           <div className='p-10 md:flex md:flex-col md:justify-center'>
             <div className='font-bold mb-5'>Bill Details</div>
             <div className='flex flex-row justify-between mb-2 md:w-[400px]'>
