@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Footer, Header, RestaurantCard } from '../components';
@@ -8,52 +8,21 @@ import Cart from '../assets/svg/cart.svg';
 import Login from './Login';
 import SignUp from './SignUp';
 
-const restaurantsList = [
-  {
-    id: 'res001',
-    name: 'Zamover',
-    description: 'A flavorful and succulent chicken dish that will transport your taste buds to new heights.',
-    coverImage:
-      'https://b.zmtcdn.com/data/pictures/8/3400168/2db0cec125975275c1757c1e718804be.jpg?fit=around|318.75:231.25&crop=318.75:231.25;*,*'
-  },
-  {
-    id: 'res002',
-    name: 'Sai food court',
-    description: 'A flavorful and succulent chicken dish that will transport your taste buds to new heights.',
-    coverImage: 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/o27n5cvkaudj3ql3auuz'
-  },
-  {
-    id: 'res003',
-    name: 'Foodies',
-    description: 'A flavorful and succulent chicken dish that will transport your taste buds to new heights.',
-    coverImage: 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/jonhygc3nhmvmlidkt7d'
-  },
-  {
-    id: 'res004',
-    name: 'Spice n rice',
-    description: 'A flavorful and succulent chicken dish that will transport your taste buds to new heights.',
-    coverImage: 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/t40y7b6oguds1hoi7yvx'
-  },
-  {
-    id: 'res005',
-    name: 'Layers',
-    description: 'A flavorful and succulent chicken dish that will transport your taste buds to new heights.',
-    coverImage: 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/il5cn0yivcqur48phdrq'
-  },
-  {
-    id: 'res006',
-    name: 'Subway',
-    description: 'A flavorful and succulent chicken dish that will transport your taste buds to new heights.',
-    coverImage:
-      'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/86f52324ecee5fc94cbf63c4a568b672'
-  }
-];
-
 const HomePage = () => {
+  const navigate = useNavigate();
+
   const [restaurantName, setRestaurantName] = useState('');
   const [showLogin, setShowLogin] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
-  const navigate = useNavigate();
+  const [restaurants, setRestaurants] = useState([]);
+
+  useEffect(() => {
+    fetch('https://dev-5u7m662s3dh14m5.api.raw-labs.com/restaurantsList')
+      .then((response) => response.json())
+      .then((data) => {
+        setRestaurants(data.response);
+      });
+  }, []);
 
   const handleLogin = () => {
     document.documentElement.style.overflow = 'hidden';
@@ -69,8 +38,6 @@ const HomePage = () => {
   const handleSignUp = () => {
     document.documentElement.style.overflow = 'hidden';
     setShowSignUp(true);
-
-    // handle sign up logic here
   };
 
   const handleRestaurantNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -158,14 +125,13 @@ const HomePage = () => {
               <span className='font-bold text-red-500'>1000</span>
               <span className='font-semibold text-zinc-900'> DISHES TO ORDER!</span>
             </h1>
-            <p className='text-zinc-900 text-xl self-center mt-5'>Welcome to The Biggest Network of Food Dinein</p>
+            <p className='text-zinc-900 text-xl self-center mt-2'>Welcome to The Biggest Network of Food Dinein</p>
           </div>
           <div className='flex flex-wrap gap-6'>
-            {restaurantsList?.map((restaurant) => {
+            {restaurants?.map((restaurant) => {
               return <RestaurantCard key={restaurant.id} restaurant={restaurant} />;
             })}
           </div>
-          {/* list restaurant cards */}
         </section>
         <Footer />
       </div>
