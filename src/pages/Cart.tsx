@@ -71,7 +71,7 @@ export default function Cart() {
           ))}
         </div>
         <div>
-          <div className=' bg-white p-10 md:px-28 md:w-5/12'>
+          <div className='bg-white p-10 md:px-28 md:w-5/12'>
             <div className='font-bold mb-5'>Bill Details</div>
             <div className='flex flex-row justify-between mb-2'>
               <div className='text-gray-400  text-xs'>Item Total</div>
@@ -91,7 +91,7 @@ export default function Cart() {
               <div className='font-extrabold'>₹{paymentDetails.total}</div>
             </div>
           </div>
-          <div className='bg-red-500 flex w-[250px] flex-col px-5 py-5 rounded-[10px] ml-20 mt-16 md:ml-28'>
+          <div className='bg-red-500 flex w-[250px] flex-col px-5 py-5 rounded-[10px] ml-16 mt-16 md:ml-28'>
             <button className='text-white text-xl font-semibold self-center -mb-px'>Proceed To Payment</button>
           </div>
         </div>
