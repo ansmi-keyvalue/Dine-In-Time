@@ -4,8 +4,7 @@ import { Footer, Header, ModalWrapper } from '../components';
 import { foodImage, menuCategories, menuCategoriesMap, RestaurantMenuCategories } from '../components/MenuItem';
 import MenuItem from '../components/MenuItem/MenuItem';
 import { IMenuItem } from '../components/MenuItem/types';
-import Login from './Login';
-import SignUp from './SignUp';
+import HeaderRight from '../components/HeaderRight/HeaderRight';
 
 const menuItems: IMenuItem[] = [
   {
@@ -77,8 +76,6 @@ const RestaurantMenu = () => {
   );
   const [isTimeSlotModalOpen, setIsTimeSlotModalOpen] = useState(false);
   const [selectedTime, setSelectedTime] = useState(timeSlots[0]);
-  const [showLogin, setShowLogin] = useState(false);
-  const [showSignUp, setShowSignUp] = useState(false);
   const handleAddItem = () => {
     // handle Add item logic
   };
@@ -92,46 +89,10 @@ const RestaurantMenu = () => {
     handleModalClose();
   };
 
-  const handleLogin = () => {
-    document.documentElement.style.overflow = 'hidden';
-    setShowLogin(true);
-  };
-
-  const onClose = () => {
-    document.documentElement.style.overflow = 'auto';
-    showLogin && setShowLogin(false);
-    showSignUp && setShowSignUp(false);
-  };
-
-  const handleSignUp = () => {
-    document.documentElement.style.overflow = 'hidden';
-    setShowSignUp(true);
-
-    // handle sign up logic here
-  };
-
-  const rightHeader = () => {
-    return (
-      <nav className='flex w-[250px] justify-between gap-5'>
-        <button className='text-zinc-900 text-right text-lg font-semibold leading-[175%]' onClick={handleLogin}>
-          Login
-        </button>
-        <div className='bg-red-500 self-stretch flex w-[110px] max-w-full flex-col px-1 py-3 rounded-[8px]'>
-          <button
-            className='text-white text-center text-md font-semibold leading-[100%] self-center -mb-0.5'
-            onClick={handleSignUp}
-          >
-            Sign Up
-          </button>
-        </div>
-      </nav>
-    );
-  };
-
   return (
     <div className='flex flex-col h-screen overflow-hidden'>
       <div className='px-16'>
-        <Header headerRight={rightHeader()} />
+        <Header headerRight={<HeaderRight />} />
       </div>
       <div className='overflow-x-hidden overflow-y-scroll shadow-inner'>
         <div className='px-28'>
@@ -205,8 +166,6 @@ const RestaurantMenu = () => {
           </div>
         </ModalWrapper>
         <Footer />
-        <Login onClose={onClose} show={showLogin} />
-        <SignUp onClose={onClose} show={showSignUp} />
       </div>
     </div>
   );

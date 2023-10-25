@@ -1,6 +1,7 @@
 import { ChangeEvent, useState } from 'react';
-import LoginModalLayout from '../components/LoginModalLayout';
-import OtpVerify from './OtpVerification';
+
+import LoginModalLayout from '../LoginModalLayout';
+import OtpVerify from '../../pages/OtpVerification';
 
 interface LoginType {
   onClose: () => void;

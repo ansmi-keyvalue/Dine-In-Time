@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from 'react';
-import LoginModalLayout from '../components/LoginModalLayout';
+import LoginModalLayout from '../LoginModalLayout';
 
 interface SignUpType {
   onClose: () => void;
