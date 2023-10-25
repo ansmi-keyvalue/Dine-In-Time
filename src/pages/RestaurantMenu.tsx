@@ -1,10 +1,8 @@
 import { useState } from 'react';
 
-import { Footer, Header, ModalWrapper } from '../components';
+import { Footer, Header, ModalWrapper, LayoutWithHeader, MenuItem, HeaderRight } from '../components';
 import { foodImage, menuCategories, menuCategoriesMap, RestaurantMenuCategories } from '../components/MenuItem';
-import MenuItem from '../components/MenuItem/MenuItem';
 import { IMenuItem } from '../components/MenuItem/types';
-import HeaderRight from '../components/HeaderRight/HeaderRight';
 
 const menuItems: IMenuItem[] = [
   {
@@ -92,14 +90,11 @@ const RestaurantMenu = () => {
   };
 
   return (
-    <div className='flex flex-col h-screen overflow-hidden'>
-      <div>
-        <Header headerRight={<HeaderRight />} />
-      </div>
-      <div className='overflow-x-hidden overflow-y-scroll shadow-inner'>
+    <LayoutWithHeader header={<Header headerRight={<HeaderRight />} />}>
+      <>
         <div className='px-20'>
           <section className='flex flex-col mt-6'>
-            <h1 className='text-slate-800 text-4xl font-semibold'>Samover</h1>
+            <h1 className='text-slate-800 text-4xl font-semibold'>Zamover</h1>
             <p className='text-zinc-900 text-xl w-full mt-3 max-md:max-w-full'>
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
               industrys standard dummy text ever since the 1500s, when an unknown printer took a galley Ipsum.
@@ -166,8 +161,8 @@ const RestaurantMenu = () => {
           </div>
         </ModalWrapper>
         <Footer />
-      </div>
-    </div>
+      </>
+    </LayoutWithHeader>
   );
 };
 
