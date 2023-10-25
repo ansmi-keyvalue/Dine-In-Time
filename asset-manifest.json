@@ -1,32 +1,32 @@
 {
   "files": {
-    "main.css": "/Dine-In-Time/static/css/main.4e2a9ab1.css",
-    "main.js": "/Dine-In-Time/static/js/main.095a7b19.js",
-    "static/js/721.48438020.chunk.js": "/Dine-In-Time/static/js/721.48438020.chunk.js",
-    "static/js/114.011f4b44.chunk.js": "/Dine-In-Time/static/js/114.011f4b44.chunk.js",
-    "static/js/506.95245a32.chunk.js": "/Dine-In-Time/static/js/506.95245a32.chunk.js",
-    "static/js/657.3438c905.chunk.js": "/Dine-In-Time/static/js/657.3438c905.chunk.js",
+    "main.css": "/Dine-In-Time/static/css/main.84fd7a28.css",
+    "main.js": "/Dine-In-Time/static/js/main.577d11c2.js",
+    "static/js/721.74385ebc.chunk.js": "/Dine-In-Time/static/js/721.74385ebc.chunk.js",
+    "static/js/114.0f0ae38f.chunk.js": "/Dine-In-Time/static/js/114.0f0ae38f.chunk.js",
+    "static/js/506.e0fd2d2f.chunk.js": "/Dine-In-Time/static/js/506.e0fd2d2f.chunk.js",
+    "static/js/657.ebf161e1.chunk.js": "/Dine-In-Time/static/js/657.ebf161e1.chunk.js",
     "static/js/787.1237098d.chunk.js": "/Dine-In-Time/static/js/787.1237098d.chunk.js",
     "static/js/823.dadcca3b.chunk.js": "/Dine-In-Time/static/js/823.dadcca3b.chunk.js",
-    "static/js/849.51d94474.chunk.js": "/Dine-In-Time/static/js/849.51d94474.chunk.js",
+    "static/js/849.8da849cb.chunk.js": "/Dine-In-Time/static/js/849.8da849cb.chunk.js",
     "static/media/food_ready.png": "/Dine-In-Time/static/media/food_ready.c37e58421365ae327f59.png",
     "static/media/burger.png": "/Dine-In-Time/static/media/burger.028d78e0cda5c8d0ee61.png",
     "static/media/restaurant_home.png": "/Dine-In-Time/static/media/restaurant_home.262c2b1452a8ff16a80c.png",
     "static/media/cart.svg": "/Dine-In-Time/static/media/cart.99af1c192589ee4f46db9535fbbceb1d.svg",
     "index.html": "/Dine-In-Time/index.html",
     "static/media/close.svg": "/Dine-In-Time/static/media/close.c62b6e84ffaa99100752861ff4670887.svg",
-    "main.4e2a9ab1.css.map": "/Dine-In-Time/static/css/main.4e2a9ab1.css.map",
-    "main.095a7b19.js.map": "/Dine-In-Time/static/js/main.095a7b19.js.map",
-    "721.48438020.chunk.js.map": "/Dine-In-Time/static/js/721.48438020.chunk.js.map",
-    "114.011f4b44.chunk.js.map": "/Dine-In-Time/static/js/114.011f4b44.chunk.js.map",
-    "506.95245a32.chunk.js.map": "/Dine-In-Time/static/js/506.95245a32.chunk.js.map",
-    "657.3438c905.chunk.js.map": "/Dine-In-Time/static/js/657.3438c905.chunk.js.map",
+    "main.84fd7a28.css.map": "/Dine-In-Time/static/css/main.84fd7a28.css.map",
+    "main.577d11c2.js.map": "/Dine-In-Time/static/js/main.577d11c2.js.map",
+    "721.74385ebc.chunk.js.map": "/Dine-In-Time/static/js/721.74385ebc.chunk.js.map",
+    "114.0f0ae38f.chunk.js.map": "/Dine-In-Time/static/js/114.0f0ae38f.chunk.js.map",
+    "506.e0fd2d2f.chunk.js.map": "/Dine-In-Time/static/js/506.e0fd2d2f.chunk.js.map",
+    "657.ebf161e1.chunk.js.map": "/Dine-In-Time/static/js/657.ebf161e1.chunk.js.map",
     "787.1237098d.chunk.js.map": "/Dine-In-Time/static/js/787.1237098d.chunk.js.map",
     "823.dadcca3b.chunk.js.map": "/Dine-In-Time/static/js/823.dadcca3b.chunk.js.map",
-    "849.51d94474.chunk.js.map": "/Dine-In-Time/static/js/849.51d94474.chunk.js.map"
+    "849.8da849cb.chunk.js.map": "/Dine-In-Time/static/js/849.8da849cb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4e2a9ab1.css",
-    "static/js/main.095a7b19.js"
+    "static/css/main.84fd7a28.css",
+    "static/js/main.577d11c2.js"
   ]
 }
