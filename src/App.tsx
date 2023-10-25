@@ -19,6 +19,12 @@ const BookingConfirmationPage = lazy(() =>
   })
 );
 
+const OrdersPage = lazy(() =>
+  import('./pages/Orders').then((module) => {
+    return { default: module.default };
+  })
+);
+
 const RestaurantMenuPage = lazy(() => import('./pages/RestaurantMenu').then((module) => ({ default: module.default })));
 
 function App() {
@@ -28,7 +34,8 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/cart' element={<CartPage />} />
-          <Route path='/booking-confirmation' element={<BookingConfirmationPage/>} />
+          <Route path='/orders' element={<OrdersPage />} />
+          <Route path='/booking-confirmation' element={<BookingConfirmationPage />} />
           <Route path='/restaurants/:id' element={<RestaurantMenuPage />} />
         </Routes>
       </Suspense>
