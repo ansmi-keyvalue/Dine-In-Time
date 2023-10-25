@@ -44,14 +44,14 @@ const HeaderRight: FC<HeaderRightProps> = ({
           </button>
         )}
         {showSignupButton && (
-          <div className='bg-red-500 self-stretch flex w-[110px] max-w-full flex-col px-1 py-3 rounded-[8px]'>
-            <button
-              className='text-white text-center text-md font-semibold leading-[100%] self-center -mb-0.5'
-              onClick={handleSignUp}
-            >
+          <button
+            onClick={handleSignUp}
+            className='bg-red-500 self-stretch flex w-[110px] max-w-full flex-col px-1 py-3 rounded-[8px]'
+          >
+            <div className='text-white text-center text-md font-semibold leading-[100%] self-center -mb-0.5'>
               Sign Up
-            </button>
-          </div>
+            </div>
+          </button>
         )}
         {showCartButton && (
           <button
