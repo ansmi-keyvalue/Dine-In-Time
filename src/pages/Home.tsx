@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLottie } from 'lottie-react';
 
 import { Footer, Header, RestaurantCard } from '../components';
+import PizzaLoader from '../assets/lottie/pizzaLoader.json';
 import RestaurantHome from '../assets/png/restaurant_home.png';
 import Cart from '../assets/svg/cart.svg';
 
@@ -10,17 +12,29 @@ import SignUp from './SignUp';
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const options = {
+    animationData: PizzaLoader,
+    loop: true
+  };
+
+  const { View } = useLottie(options);
 
   const [restaurantName, setRestaurantName] = useState('');
   const [showLogin, setShowLogin] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
   const [restaurants, setRestaurants] = useState([]);
+  const [isLoadingRestaurants, setIsLoadingRestaurants] = useState(true);
 
   useEffect(() => {
     fetch('https://dev-5u7m662s3dh14m5.api.raw-labs.com/restaurantsList')
       .then((response) => response.json())
       .then((data) => {
         setRestaurants(data.response);
+        setIsLoadingRestaurants(false);
+      })
+      .catch((err) => {
+        setIsLoadingRestaurants(false);
+        console.log(err);
       });
   }, []);
 
@@ -80,6 +94,11 @@ const HomePage = () => {
     <div className='flex flex-col h-screen overflow-hidden'>
       <Header headerRight={rightHeader()} />
       <div className='flex flex-col overflow-y-scroll overflow-x-hidden shadow-inner'>
+        {isLoadingRestaurants && (
+          <div className='bg-neutral-100 self-center flex w-full flex-col justify-center items-center absolute'>
+            {View}
+          </div>
+        )}
         <section className='w-full max-md:max-w-full px-9 lg:px-20 pt-14 pb-10'>
           <div className='flex max-md:flex-col max-md:items-stretch max-md:gap-0'>
             <div className='flex flex-col items-stretch w-[53%] max-md:w-full'>
@@ -128,7 +147,7 @@ const HomePage = () => {
             <p className='text-zinc-900 text-xl self-center mt-2'>Welcome to The Biggest Network of Food Dinein</p>
           </div>
           <div className='flex flex-wrap gap-6'>
-            {restaurants?.map((restaurant) => {
+            {restaurants?.map((restaurant: { id: string; name: string; description: string; coverImage: string }) => {
               return <RestaurantCard key={restaurant.id} restaurant={restaurant} />;
             })}
           </div>

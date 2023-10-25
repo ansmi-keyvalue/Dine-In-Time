@@ -8,6 +8,7 @@ interface OtpverifyType {
 
 export default function OtpVerify({ onClose, show }: OtpverifyType) {
   const [Otp, setOtp] = useState<string>('');
+  console.log(Otp);
 
   const handleOTPEntry = (e: ChangeEvent<HTMLInputElement>) => {
     setOtp(e.target.value);

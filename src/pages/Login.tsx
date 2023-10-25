@@ -39,7 +39,7 @@ export default function Login({ onClose, show }: LoginType) {
         />
       </div>
       <div
-        className='text-white text-[20px] font-semibold w-full sm:w-11/12 h-[54px] px-[15px] py-[18px] bg-red-500 rounded-[10px] shadow flex items-center justify-center mb-8'
+        className='text-white text-[20px] font-semibold w-full sm:w-11/12 h-[54px] px-[15px] py-[18px] bg-red-500 rounded-[10px] shadow flex items-center justify-center mb-2'
         onClick={onSubmitNumber}
       >
         Login

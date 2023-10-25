@@ -76,7 +76,7 @@ const RestaurantMenu = () => {
     RestaurantMenuCategories.Recommended
   );
   const [isTimeSlotModalOpen, setIsTimeSlotModalOpen] = useState(false);
-  const [selectedTime, setSelectedTime] = useState('');
+  const [selectedTime, setSelectedTime] = useState(timeSlots[0]);
   const [showLogin, setShowLogin] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
   const handleAddItem = () => {
@@ -129,22 +129,21 @@ const RestaurantMenu = () => {
   };
 
   return (
-    <>
-      <div className='flex flex-col h-screen overflow-hidden'>
-        <div className='px-16'>
-          <Header headerRight={rightHeader()} />
-        </div>
-        <div className='overflow-x-hidden overflow-y-scroll px-28 shadow-inner'>
+    <div className='flex flex-col h-screen overflow-hidden'>
+      <div className='px-16'>
+        <Header headerRight={rightHeader()} />
+      </div>
+      <div className='overflow-x-hidden overflow-y-scroll shadow-inner'>
+        <div className='px-28'>
           <section className='flex flex-col mt-6'>
             <h1 className='text-slate-800 text-4xl font-semibold'>Samover</h1>
-            <p className='text-zinc-900 text-3xl w-full mt-3 max-md:max-w-full'>
+            <p className='text-zinc-900 text-xl w-full mt-3 max-md:max-w-full'>
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
               industrys standard dummy text ever since the 1500s, when an unknown printer took a galley Ipsum.
             </p>
-            <div className='w-full bg-black h-[2px] mt-4' />
           </section>
-          <div className='mt-16 mb-14 flex justify-between items-center'>
-            <div className='font-medium text-3xl'>
+          <div className='mt-10 mb-8 flex justify-between items-center'>
+            <div className='font-medium text-2xl'>
               Available Dishes at <span className='font-bold'>{selectedTime}</span>
             </div>
             <button
@@ -160,7 +159,7 @@ const RestaurantMenu = () => {
                 {menuCategories.map((item) => (
                   <button
                     key={item}
-                    className={`flex text-black text-3xl font-semibold ${
+                    className={`flex text-black text-xl font-semibold ${
                       selectedCategory === item ? 'text-orange-600' : ''
                     }`}
                     onClick={() => setSelectedCategory(item as RestaurantMenuCategories)}
@@ -171,7 +170,6 @@ const RestaurantMenu = () => {
               </div>
             </div>
             <div className='flex flex-col px-5'></div>
-            <div className='w-[1px] bg-black mr-5' />
             <div className='flex flex-col gap-8 flex-[4] pb-16'>
               {menuItems.map((item) => (
                 <MenuItem key={item.id} item={item} onAddItem={handleAddItem} />
@@ -206,12 +204,11 @@ const RestaurantMenu = () => {
             </button>
           </div>
         </ModalWrapper>
+        <Footer />
+        <Login onClose={onClose} show={showLogin} />
+        <SignUp onClose={onClose} show={showSignUp} />
       </div>
-
-      <Footer />
-      <Login onClose={onClose} show={showLogin} />
-      <SignUp onClose={onClose} show={showSignUp} />
-    </>
+    </div>
   );
 };
 

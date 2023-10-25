@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 
-export default function RestaurantCard(props: { restaurant: {id: string | number; name: string; description: string; coverImage: string; } }) {
+export default function RestaurantCard(props: {
+  restaurant: { id: string | number; name: string; description: string; coverImage: string };
+}) {
   const { id, name, description, coverImage } = props.restaurant;
   const navigate = useNavigate();
 
