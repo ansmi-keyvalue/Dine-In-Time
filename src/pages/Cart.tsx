@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { QuantitySelector, Header, Footer, LayoutWithHeader } from '../components';
+import { QuantitySelector, Header, PageLayout } from '../components';
 import Burger from '../assets/burger.png';
 
 type OrderItem = {
@@ -50,7 +50,7 @@ export default function Cart() {
   };
 
   return (
-    <LayoutWithHeader header={<Header />}>
+    <PageLayout header={<Header />}>
       <>
         <div className='flex flex-col items-center md:flex-row md:w-full md:justify-center md:items-start md:mt-16'>
           <div className='border rounded-md h-fit w-fit m-10 p-3 md:py-10 md:mr-10 md:p-10 md:mt-0'>
@@ -116,8 +116,7 @@ export default function Cart() {
             </div>
           </div>
         </div>
-        <Footer />
       </>
-    </LayoutWithHeader>
+    </PageLayout>
   );
 }

@@ -1,7 +1,7 @@
 import QRCode from 'react-qr-code';
 import { useNavigate } from 'react-router-dom';
 
-import { Footer, Header, LayoutWithHeader } from '../components';
+import { Header, PageLayout } from '../components';
 
 export default function BookingConfirmation() {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ export default function BookingConfirmation() {
   };
 
   return (
-    <LayoutWithHeader header={<Header />}>
+    <PageLayout header={<Header />}>
       <>
         <section className='flex justify-center items-center flex-col w-full text-center px-[20px] py-[20px]'>
           <div className='md:m-20 justify-center items-center p-10 bg-gray-100 rounded-lg md:w-[500px]'>
@@ -38,8 +38,7 @@ export default function BookingConfirmation() {
             <div className='w-8 h-8 rounded-full absolute bg-white top-1/2 -right-4 transform -translate-y-1/2'></div>
           </div>
         </section>
-        <Footer />
       </>
-    </LayoutWithHeader>
+    </PageLayout>
   );
 }
