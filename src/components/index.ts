@@ -6,5 +6,6 @@ import RestaurantCard from './restaurantCard';
 import ModalWrapper from './ModalWrapper/ModalWrapper';
 import Login from './Login/Login';
 import SignUp from './SignUp/SignUp';
+import SideBar from './SideBar.tsx/SideBar';
 
-export { Footer, Header, MenuItem, QuantitySelector, ModalWrapper, RestaurantCard, Login, SignUp };
+export { Footer, Header, MenuItem, QuantitySelector, ModalWrapper, RestaurantCard, Login, SignUp, SideBar };
