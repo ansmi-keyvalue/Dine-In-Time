@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLottie } from 'lottie-react';
 
-import { Footer, Header, RestaurantCard } from '../components';
+import { Footer, Header, RestaurantCard, LayoutWithHeader } from '../components';
 import PizzaLoader from '../assets/lottie/pizzaLoader.json';
 import RestaurantHome from '../assets/png/restaurant_home.png';
 
@@ -41,9 +41,8 @@ const HomePage = () => {
   };
 
   return (
-    <div className='flex flex-col h-screen overflow-hidden'>
-      <Header headerRight={<HeaderRight />} />
-      <div className='flex flex-col overflow-y-scroll overflow-x-hidden shadow-inner'>
+    <LayoutWithHeader header={<Header headerRight={<HeaderRight />} />}>
+      <>
         {isLoadingRestaurants && (
           <div className='bg-neutral-100 self-center flex w-full flex-col justify-center items-center absolute'>
             {View}
@@ -103,8 +102,8 @@ const HomePage = () => {
           </div>
         </section>
         <Footer />
-      </div>
-    </div>
+      </>
+    </LayoutWithHeader>
   );
 };
 

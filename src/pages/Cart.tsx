@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { QuantitySelector, Header, Footer } from '../components';
+import { useNavigate } from 'react-router-dom';
 
+import { QuantitySelector, Header, Footer, LayoutWithHeader } from '../components';
 import Burger from '../assets/burger.png';
 
 type OrderItem = {
@@ -15,6 +16,8 @@ const initialItems: OrderItem[] = [
 ];
 
 export default function Cart() {
+  const navigate = useNavigate();
+
   const [items, setItems] = useState(initialItems);
   const [paymentDetails, setPaymentDetails] = useState({ itemTotal: 740, total: 782, additionalCharge: 42 });
 
@@ -47,11 +50,8 @@ export default function Cart() {
   };
 
   return (
-    <main className='flex-1 min-h-screen'>
-      <div className='shadow-md sticky top-0 bg-white'>
-        <Header title='My Cart' />
-      </div>
-      <div>
+    <LayoutWithHeader header={<Header />}>
+      <>
         <div className='flex flex-col items-center md:flex-row md:w-full md:justify-center md:items-start md:mt-16'>
           <div className='border rounded-md h-fit w-fit m-10 p-3 md:py-10 md:mr-10 md:p-10 md:mt-0'>
             {items?.map((item, index) => (
@@ -97,7 +97,10 @@ export default function Cart() {
                   <div className='font-extrabold'>₹{paymentDetails.total}</div>
                 </div>
               </div>
-              <button className='bg-red-500 flex flex-col w-[100%] px-5 py-3 rounded-[10px] mt-[20px]'>
+              <button
+                className='bg-red-500 flex flex-col w-[100%] px-5 py-3 rounded-[10px] mt-[20px]'
+                onClick={() => navigate('/booking-confirmation')}
+              >
                 <div className='text-white text-md font-semibold self-center -mb-px'>Proceed To Payment</div>
               </button>
             </div>
@@ -114,7 +117,7 @@ export default function Cart() {
           </div>
         </div>
         <Footer />
-      </div>
-    </main>
+      </>
+    </LayoutWithHeader>
   );
 }

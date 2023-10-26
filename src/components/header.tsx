@@ -9,7 +9,7 @@ export default function Header(props: { title?: string; headerRight?: JSX.Elemen
   const [showSideBar, setShowSideBar] = useState(false);
 
   return (
-    <header className='justify-between h-200 items-center self-center flex w-full  max-md:max-w-full max-md:flex-wrap px-3 md:px-8 sticky top-0 z-10 py-6'>
+    <header className='justify-between h-200 items-center self-center flex w-full  max-md:max-w-full max-md:flex-wrap px-3 md:px-8 py-6'>
       <div className='flex max-sm:flex-1'>
         <button className='md:hidden ml-4 mr-4' onClick={() => setShowSideBar(true)}>
           <img src={HamburgerMenu} className='h-8' alt='hamburger-menu' />
