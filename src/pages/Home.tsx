@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLottie } from 'lottie-react';
 
-import { Footer, Header, RestaurantCard, LayoutWithHeader } from '../components';
+import { Header, RestaurantCard, PageLayout } from '../components';
 import PizzaLoader from '../assets/lottie/pizzaLoader.json';
 import RestaurantHome from '../assets/png/restaurant_home.png';
 
@@ -41,7 +41,7 @@ const HomePage = () => {
   };
 
   return (
-    <LayoutWithHeader header={<Header headerRight={<HeaderRight />} />}>
+    <PageLayout header={<Header headerRight={<HeaderRight />} />}>
       <>
         {isLoadingRestaurants && (
           <div className='bg-neutral-100 self-center flex w-full flex-col justify-center items-center absolute'>
@@ -101,9 +101,8 @@ const HomePage = () => {
             })}
           </div>
         </section>
-        <Footer />
       </>
-    </LayoutWithHeader>
+    </PageLayout>
   );
 };
 

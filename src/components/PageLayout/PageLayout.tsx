@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 
-export default function LayoutWithHeader(props: { header?: JSX.Element; children?: JSX.Element }) {
+import Footer from '../footer';
+
+export default function PageLayout(props: { header?: JSX.Element; children?: JSX.Element }) {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const scrollDivRef: any = useRef(null);
@@ -29,6 +31,7 @@ export default function LayoutWithHeader(props: { header?: JSX.Element; children
       <div className={`sticky left-0 top-0 right-0 z-20 ${isScrolled && `shadow-lg`}`}>{props.header}</div>
       <div ref={scrollDivRef} className='flex flex-col overflow-y-scroll overflow-x-hidden'>
         {props.children}
+        <Footer />
       </div>
     </div>
   );

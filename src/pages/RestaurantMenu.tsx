@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Footer, Header, ModalWrapper, LayoutWithHeader, MenuItem, HeaderRight } from '../components';
+import { Header, ModalWrapper, PageLayout, MenuItem, HeaderRight } from '../components';
 import { foodImage, menuCategories, menuCategoriesMap, RestaurantMenuCategories } from '../components/MenuItem';
 import { IMenuItem } from '../components/MenuItem/types';
 
@@ -90,7 +90,7 @@ const RestaurantMenu = () => {
   };
 
   return (
-    <LayoutWithHeader header={<Header headerRight={<HeaderRight />} />}>
+    <PageLayout header={<Header headerRight={<HeaderRight />} />}>
       <>
         <div className='px-20'>
           <section className='flex flex-col mt-6'>
@@ -160,9 +160,8 @@ const RestaurantMenu = () => {
             </button>
           </div>
         </ModalWrapper>
-        <Footer />
       </>
-    </LayoutWithHeader>
+    </PageLayout>
   );
 };
 
