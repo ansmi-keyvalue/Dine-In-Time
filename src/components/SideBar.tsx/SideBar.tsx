@@ -55,15 +55,15 @@ export default function SideBar({
         <Transition.Child
           as={Fragment}
           enter='transform transition ease-in-out duration-500'
-          enterFrom='translate-x-[-70%]'
+          enterFrom='translate-x-[-100%]'
           enterTo='translate-x-0'
           leave='transform transition ease-in-out duration-500 delay-100'
           leaveFrom='translate-x-0'
-          leaveTo='translate-x-[-70%]'
+          leaveTo='translate-x-[-100%]'
         >
           <div className='fixed inset-0 overflow-hidden z-50'>
             <div className='overflow-hidden'>
-              <div className='z-50 bg-white h-screen px-[5%] md:px-[68px] py-[35px] flex flex-row w-[40%]'>
+              <div className='z-50 bg-white h-screen px-[5%] md:px-[68px] py-[35px] flex flex-row max-sm:w-full'>
                 <div className='sm:w-2/3 sm:mr-10 w-full'>
                   <button className='mb-8' onClick={onCloseIconPress}>
                     <img src={Close} alt='close' />
